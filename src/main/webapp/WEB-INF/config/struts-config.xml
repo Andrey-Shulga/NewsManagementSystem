@@ -1,0 +1,12 @@
+<struts-config>
+    <!-- Spring Struts plugin -->
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation"
+                      value="/WEB-INF/config/SpringBeans.xml"/>
+    </plug-in>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config"
+                      value="/WEB-INF/config/tiles-defs.xml"/>
+    </plug-in>
+</struts-config>
