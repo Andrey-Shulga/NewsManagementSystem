@@ -14,7 +14,7 @@
 
     </action-mappings>
 
-    <message-resources parameter="MessageResources"/>
+    <message-resources parameter="lang"/>
 
 
     <plug-in className="org.apache.struts.tiles.TilesPlugin">

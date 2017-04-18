@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+    <Resource auth="Container"
+              driverClassName="org.h2.Driver"
+              maxTotal="8"
+              maxAge="0"
+              maxIdle="3"
+              name="jdbc/mydb"
+              username="h2"
+              password="h2"
+              type="javax.sql.DataSource"
+              url="jdbc:h2:file:d:/java/h2data/mydb;IFEXISTS=TRUE"/>
+</Context>
