@@ -1,9 +1,14 @@
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+
 <tiles-definitions>
 
-    <definition name="company-template" path="/jsp/tiles/common-layout.jsp">
-        <put name="header" value="/jsp/tiles/header.jsp"/>
-        <put name="footer" value="/jsp/tiles/footer.jsp"/>
-        <put name="sidebar" value="/jsp/tiles/sidebar.jsp"/>
+    <definition name="company-template" template="/tiles/common-layout.jsp">
+        <put name="header" value="/tiles/header.jsp"/>
+        <put name="footer" value="/tiles/footer.jsp"/>
+
+        <put name="body" value="/tiles/form-body.jsp"/>
     </definition>
 
 </tiles-definitions>
