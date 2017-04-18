@@ -1,0 +1,9 @@
+<tiles-definitions>
+
+    <definition name="company-template" path="/jsp/tiles/common-layout.jsp">
+        <put name="header" value="/jsp/tiles/header.jsp"/>
+        <put name="footer" value="/jsp/tiles/footer.jsp"/>
+        <put name="sidebar" value="/jsp/tiles/sidebar.jsp"/>
+    </definition>
+
+</tiles-definitions>
