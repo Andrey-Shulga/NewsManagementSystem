@@ -1,0 +1,22 @@
+Done on 18.04.2017
+
+- Installed all necessary soft (Idea, Maven, Tomcat, Git)
+- Read about test app and requirements for it
+- Set up project for task app: add necessary dependencies Spring, Struts
+- Read about spring and struts integration
+- Added resource bundle for further localization
+- Created tiles templates for front-end part (header, footer, body, menu sidebar)
+- Project was deployed and tested for tiles templates integration. All ok.
+
+Planes on 19.04.2017
+
+- Add datasource (H2 database) to project for further application test
+- Add and configure context.xml in order to use tomcat connection pool
+- Add Hibernate support to project (configure hibernate.cfg.xml)
+- Add HibernateUtil class for getting Session factory
+- Add Spring application context (configure applicationContext.xml)
+- Spring will be get datasource by JNDI and use LocalSessionFactoryBean
+- Add NewsForm model for Struts MVC
+- Add News model
+- Annotate News model by JPA annotations
+- Create Service and Dao layers. Annotate them with Spring annotations for further inject in Struts from Spring IoC.
