@@ -4,6 +4,6 @@
 <head>
 </head>
 <body>
-<div align="center" style="font-weight:bold">Header</div>
+<div id="header" align="center" style="font-weight:bold">Header</div>
 </body>
 </html>

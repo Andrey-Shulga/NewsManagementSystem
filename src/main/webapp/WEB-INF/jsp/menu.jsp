@@ -6,7 +6,9 @@
     <title>JSP Page</title>
 </head>
 <body>
+<div id="menu">
 <a href="Link.do?method=newslist">News List</a><br>
 <a href="Link.do?method=addnews">Add News</a>
+</div>
 </body>
 </html>

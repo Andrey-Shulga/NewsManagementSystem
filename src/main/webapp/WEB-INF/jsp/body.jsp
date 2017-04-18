@@ -6,6 +6,8 @@
     <title>JSP Page</title>
 </head>
 <body>
+<div id="body">
 <p> sample body content.</p>
+</div>
 </body>
 </html>

@@ -4,6 +4,6 @@
 <head>
 </head>
 <body>
-<div align="center">&copy; copyright</div>
+<div id="footer" align="center">&copy; EPAM SYSTEMS 2017</div>
 </body>
 </html>
