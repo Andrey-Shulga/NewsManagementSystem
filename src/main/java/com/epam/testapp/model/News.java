@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "news")
-public class News {
+public class News extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
