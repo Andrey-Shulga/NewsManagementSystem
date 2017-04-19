@@ -4,11 +4,14 @@ import org.apache.struts.action.ActionForm;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
 @Table(name = "news")
-public class News extends ActionForm implements Serializable {
+public class News extends ActionForm implements BaseEntity, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,8 +61,14 @@ public class News extends ActionForm implements Serializable {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(String date) {
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            this.date = format.parse(date);
+        } catch (ParseException e) {
+            this.date = new Date();
+        }
     }
 
     public String getBrief() {

@@ -18,7 +18,7 @@ public class AddNewsAction extends Action {
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws Exception {
 
-        News news = new News();
+        News news = (News) form;
         NewsService newsService = new NewsService();
         newsService.save(news);
 
