@@ -4,13 +4,13 @@
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
 
     <Resource auth="Container"
-              driverClassName="org.h2.Driver"
+              driverClassName="org.postgresql.Driver"
               maxTotal="8"
               maxAge="0"
               maxIdle="3"
               name="jdbc/mydb"
-              username="h2"
-              password="h2"
+              username="postgres"
+              password="postgres"
               type="javax.sql.DataSource"
-              url="jdbc:h2:file:d:/java/h2data/mydb;IFEXISTS=TRUE"/>
+              url="jdbc:postgresql://localhost:5432/mydb"/>
 </Context>

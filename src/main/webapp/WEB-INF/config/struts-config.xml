@@ -18,6 +18,17 @@
                 type="org.apache.struts.actions.ForwardAction"
                 parameter="/WEB-INF/jsp/add-form.jsp"/>
 
+        <action
+                path="/AddNews"
+                type="com.epam.testapp.action.AddNewsAction"
+                name="News"
+                input="/WEB-INF/jsp/add-form.jsp">
+
+            <forward name="success" path="/WEB-INF/jsp/index.jsp"/>
+            <forward name="fail" path="/WEB-INF/jsp/add-form.jsp"/>
+
+        </action>
+
     </action-mappings>
 
     <message-resources parameter="lang"/>

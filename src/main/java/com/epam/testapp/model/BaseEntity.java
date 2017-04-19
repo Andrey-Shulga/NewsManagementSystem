@@ -1,4 +1,7 @@
 package com.epam.testapp.model;
 
-public interface BaseEntity {
+public class BaseEntity {
+
+    public BaseEntity() {
+    }
 }

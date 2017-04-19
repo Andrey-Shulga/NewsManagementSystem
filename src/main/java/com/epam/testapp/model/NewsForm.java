@@ -4,6 +4,7 @@ import java.util.List;
 
 public class NewsForm {
 
+    private News news;
     private List<News> newsList;
 
     public NewsForm() {
@@ -15,5 +16,13 @@ public class NewsForm {
 
     public void setNewsList(List<News> newsList) {
         this.newsList = newsList;
+    }
+
+    public News getNews() {
+        return news;
+    }
+
+    public void setNews(News news) {
+        this.news = news;
     }
 }

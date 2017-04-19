@@ -24,6 +24,7 @@
     </appender>
 
     <!-- Send logs to both console and file audit -->
+    <logger name="org.hibernate" level="debug" additivity="false"/>
 
     <logger name="com.epam.testapp" level="debug" additivity="false">
 
