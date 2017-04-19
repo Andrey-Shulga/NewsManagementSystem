@@ -1,11 +1,13 @@
 package com.epam.testapp.model;
 
+import org.apache.struts.validator.ValidatorForm;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "news")
-public class News extends BaseEntity {
+public class News extends ValidatorForm implements BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
