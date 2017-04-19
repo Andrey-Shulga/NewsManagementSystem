@@ -10,11 +10,7 @@ public interface Dao<T extends BaseEntity> {
 
     List<T> findAll();
 
-    T findById(long id);
-
-    void update(T entity);
-
-    T findById(Class<T> entityClass, int id);
+    T findById(Class<T> entityClass, long id);
 
     void delete(T entity);
 }
