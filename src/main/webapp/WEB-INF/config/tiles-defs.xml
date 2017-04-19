@@ -5,12 +5,12 @@
 
 <tiles-definitions>
 
-    <definition name="baseLayout" template="/WEB-INF/jsp/baseLayout.jsp">
+    <definition name="baseLayout" template="/WEB-INF/jsp/tiles/baseLayout.jsp">
         <put name="title" value="Tiles Example"/>
-        <put name="header" value="/WEB-INF/jsp/header.jsp"/>
-        <put name="menu" value="/WEB-INF/jsp/menu.jsp"/>
-        <put name="body" value="/WEB-INF/jsp/body.jsp"/>
-        <put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+        <put name="header" value="/WEB-INF/jsp/tiles/header.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/tiles/menu.jsp"/>
+        <put name="body" value="/WEB-INF/jsp/tiles/body.jsp"/>
+        <put name="footer" value="/WEB-INF/jsp/tiles/footer.jsp"/>
     </definition>
 
 </tiles-definitions>

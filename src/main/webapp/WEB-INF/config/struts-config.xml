@@ -5,12 +5,18 @@
 
 <struts-config>
 
+    <form-beans>
+        <form-bean name="News" type="com.epam.testapp.model.News"/>
+    </form-beans>
+
     <action-mappings>
 
-        <action
-                path="/User"
+        <action path="/NewsList"
                 type="org.apache.struts.actions.ForwardAction"
                 parameter="/WEB-INF/jsp/index.jsp"/>
+        <action path="/AddNewsForm"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="/WEB-INF/jsp/add-form.jsp"/>
 
     </action-mappings>
 
