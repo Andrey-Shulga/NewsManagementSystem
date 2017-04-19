@@ -20,3 +20,28 @@ Planes on 19.04.2017
 - Add News model
 - Annotate News model by JPA annotations
 - Create Service and Dao layers. Annotate them with Spring annotations for further inject in Struts from Spring IoC.
+
+Done on 19.04.2017
+
+- Added datasource (H2 database) to project for further application test
+- Added and configure context.xml in order to use tomcat connection pool
+- Added Hibernate support to project (configure hibernate.cfg.xml)
+- Added HibernateUtil class for getting Session factory
+- Added Spring application context (configure applicationContext.xml)
+- Spring get datasource by JNDI and use LocalSessionFactoryBean
+- Added NewsForm model for Struts MVC
+- Added News model
+- Annotate News model by JPA annotations
+- Create Service and Dao layers. Annotate them with Spring annotations for further inject in Struts from Spring IoC.
+- Added form for adding new news
+- Implemented saving news to database through Hibernate
+
+Planes on 20.04.2017
+
+- Add filter for force input data encoding to UTF8
+- Get news from database through Hibernate
+- Output news list from database on jsp page
+- Add validation for input data
+- Make validation rules for input fields
+- Implement interface and error messages localization on 2 language using resource bundle
+- Add actions to change interface languages
