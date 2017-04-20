@@ -4,6 +4,6 @@
 <head>
 </head>
 <body>
-<div id="header" align="center" style="font-weight:bold">News Management System</div>
+<div id="header" align="center" style="font-weight:bold"><h1>News Management System</h1></div>
 </body>
 </html>

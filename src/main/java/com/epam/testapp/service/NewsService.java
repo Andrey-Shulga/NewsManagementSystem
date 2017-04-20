@@ -11,8 +11,6 @@ import java.util.List;
 @Service
 public class NewsService {
 
-
-
     public News save(News news) {
 
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
@@ -24,10 +22,10 @@ public class NewsService {
 
     public List<News> getAll() {
 
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
+
         NewsDao newsDao = new JdbcNewsDao();
         List<News> newsList = newsDao.findAll();
-        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+
         return newsList;
     }
 }

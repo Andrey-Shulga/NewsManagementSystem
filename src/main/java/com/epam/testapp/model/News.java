@@ -1,18 +1,14 @@
 package com.epam.testapp.model;
 
-import org.apache.struts.action.ActionForm;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
 @Table(name = "news")
-public class News extends ActionForm implements BaseEntity, Serializable {
+public class News implements BaseEntity, Serializable {
 
     private static final org.slf4j.Logger log = LoggerFactory.getLogger("News");
 
@@ -25,7 +21,7 @@ public class News extends ActionForm implements BaseEntity, Serializable {
     private String title;
 
     @Column(name = "date")
-    private Date date;
+    private Date date = new Date();
 
     @Column(name = "brief")
     private String brief;
@@ -64,16 +60,9 @@ public class News extends ActionForm implements BaseEntity, Serializable {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
 
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        log.debug(" date in string {}", date);
-        try {
-            this.date = format.parse(date);
-            log.debug(" date after parse {}", this.date);
-        } catch (ParseException e) {
-            this.date = new Date();
-        }
+        this.date = date;
     }
 
     public String getBrief() {

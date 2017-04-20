@@ -2,7 +2,11 @@ package com.epam.testapp.dao.jdbc;
 
 import com.epam.testapp.dao.Dao;
 import com.epam.testapp.model.BaseEntity;
+import com.epam.testapp.model.News;
 import com.epam.testapp.util.HibernateUtil;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
@@ -38,6 +42,21 @@ public abstract class JdbcGenericDao<T extends BaseEntity> implements Dao<T> {
 
     @Override
     public List<T> findAll() {
-        return null;
+
+        List<T> newsList;
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+
+            Criteria criteria = session.createCriteria(News.class);
+            criteria.addOrder(Order.desc("date"));
+            newsList = criteria.list();
+
+            session.getTransaction().commit();
+        } finally {
+            if (session != null && session.isOpen()) session.close();
+        }
+        return newsList;
     }
 }
