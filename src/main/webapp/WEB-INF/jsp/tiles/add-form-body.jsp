@@ -13,37 +13,58 @@
 <body>
 
 <div id="body">
+
     <html:form action="/AddNews">
 
+        <table border="0">
+
     <div style="padding:16px">
+        <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.title"/>
         </div>
+        </td>
+            <td>
         <html:text property="news.title" size="100" maxlength="1000"/>
+            </td>
+        </tr>
     </div>
 
+
     <div style="padding:16px">
+        <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.date"/>
         </div>
+        </td>
+            <td>
         <input type="date" readonly value="<fmt:formatDate type="date" value="${now}"/>" size="10" maxlength="10"/>
-
+            </td>
+        </tr>
 
     </div>
 
     <div style="padding:16px">
+        <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.brief"/>
         </div>
+        </td><td>
         <html:textarea property="news.brief"/>
+            </td></tr>
     </div>
 
     <div style="padding:16px">
+        <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.content"/>
         </div>
+        </td><td>
         <html:textarea property="news.content"/>
+        </td></tr>
     </div>
+
+    </table>
 
     <div style="padding:16px">
         <div style="float:left;padding-right:8px;">

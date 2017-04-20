@@ -1,9 +1,9 @@
 package com.epam.testapp.service;
 
 import com.epam.testapp.dao.NewsDao;
-import com.epam.testapp.dao.jdbc.JdbcNewsDao;
 import com.epam.testapp.model.News;
 import com.epam.testapp.util.HibernateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +11,13 @@ import java.util.List;
 @Service
 public class NewsService {
 
+    @Autowired
+    private NewsDao newsDao;
+
     public News save(News news) {
 
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-        NewsDao newsDao = new JdbcNewsDao();
+
         News savedNews = newsDao.save(news);
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
         return savedNews;
@@ -23,7 +26,6 @@ public class NewsService {
     public List<News> getAll() {
 
 
-        NewsDao newsDao = new JdbcNewsDao();
         List<News> newsList = newsDao.findAll();
 
         return newsList;

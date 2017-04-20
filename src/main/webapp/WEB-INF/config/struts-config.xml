@@ -48,6 +48,10 @@
 
     </action-mappings>
 
+    <controller>
+        <set-property property="processorClass" value="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
+    </controller>
+
     <message-resources parameter="lang"/>
 
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
@@ -61,5 +65,9 @@
                       property="pathnames"/>
     </plug-in>
 
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation"
+                      value="/WEB-INF/config/action-servlet.xml, /WEB-INF/config/applicationContext.xml"/>
+    </plug-in>
 
 </struts-config>
