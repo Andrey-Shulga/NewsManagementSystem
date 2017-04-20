@@ -38,6 +38,14 @@
                 type="org.apache.struts.actions.ForwardAction"
                 parameter="/WEB-INF/jsp/news-list.jsp"/>
 
+        <action
+                path="/Locale"
+                type="com.epam.testapp.action.LanguageSelectAction"
+                parameter="method">
+
+            <forward name="success" path="/WEB-INF/jsp/news-list.jsp"/>
+        </action>
+
     </action-mappings>
 
     <message-resources parameter="lang"/>

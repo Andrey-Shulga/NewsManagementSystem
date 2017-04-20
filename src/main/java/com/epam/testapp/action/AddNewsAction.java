@@ -20,7 +20,6 @@ public class AddNewsAction extends Action {
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws Exception {
 
-
         NewsForm newsForm = (NewsForm) form;
         if (newsForm.getNews().getDate() == null) newsForm.getNews().setDate(new Date());
         NewsService newsService = new NewsService();
