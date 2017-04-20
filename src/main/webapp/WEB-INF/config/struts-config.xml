@@ -43,7 +43,7 @@
                 type="com.epam.testapp.action.LanguageSelectAction"
                 parameter="method">
 
-            <forward name="success" path="/WEB-INF/jsp/news-list.jsp"/>
+            <forward name="success" path="/NewsList.do"/>
         </action>
 
     </action-mappings>

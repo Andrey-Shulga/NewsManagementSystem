@@ -8,15 +8,19 @@
 <body>
 <div id="body">
     <br>
-    <div align="center"><h2>Breaking News</h2></div>
+    <div align="center"><h2><bean:message key="body.head.news"/></h2></div>
     <hr>
     <br>
 
     <logic:iterate name="newsList" id="newsListId">
         <div>
+            <table border="3" width="70%">
+                <tr><td>
             <h4><bean:write name="newsListId" property="title"/></h4>
-            <bean:write name="newsListId" property="date" format="dd-MM-yyyy"/> <br>
+            <small><ins> <bean:write name="newsListId" property="date" format="dd-MM-yyyy"/> </ins></small><br><br>
             <bean:write name="newsListId" property="brief"/> <br>
+                </td> </tr>
+            </table><br>
         </div>
     </logic:iterate>
 

@@ -1,14 +1,16 @@
 <%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
+<%@ taglib prefix="bean" uri="http://jakarta.apache.org/struts/tags-bean" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <html>
 <head>
 </head>
 <body>
-<div id="header" align="center" style="font-weight:bold"><h1>News Management System</h1>
+<div id="header" align="center" style="font-weight:bold"><h1><bean:message key="header.label"/></h1>
     <br>
-    <html:link page="/Locale.do?method=russian">Russian</html:link>
+    <div align="right">
+    <html:link page="/Locale.do?method=russian">Русский</html:link>
     <html:link page="/Locale.do?method=english">English</html:link></div>
-
+    </div>
 </body>
 </html>
