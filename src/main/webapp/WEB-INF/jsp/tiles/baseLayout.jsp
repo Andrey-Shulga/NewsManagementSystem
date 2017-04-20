@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><tiles:getAsString name="title" ignore="true"/></title>
     <link rel="stylesheet" href="<html:rewrite page='/css/style.css'/>">
+
 </head>
 
 <body>

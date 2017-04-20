@@ -8,6 +8,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
 import static com.epam.testapp.constant.ConstantHolder.SUCCESS;
 
 public class AddNewsAction extends Action {
@@ -20,7 +22,7 @@ public class AddNewsAction extends Action {
 
 
         NewsForm newsForm = (NewsForm) form;
-
+        if (newsForm.getNews().getDate() == null) newsForm.getNews().setDate(new Date());
         NewsService newsService = new NewsService();
 
         newsService.save(newsForm.getNews());

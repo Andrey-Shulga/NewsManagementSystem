@@ -9,17 +9,7 @@
 </head>
 <body>
 <div id="body">
-    <br>
-    <div align="center"><h2>Breaking News</h2></div>
-    <hr>
-    <br>
-    <logic:iterate name="newsList" id="newsListId">
 
-        <h4><bean:write name="newsListId" property="title"/></h4>
-        <bean:write name="newsListId" property="date" format="dd-MM-yyyy"/> <br>
-        <bean:write name="newsListId" property="brief"/> <br>
-
-    </logic:iterate>
 
 </div>
 </body>

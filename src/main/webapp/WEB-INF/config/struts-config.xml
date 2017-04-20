@@ -15,7 +15,7 @@
                 type="com.epam.testapp.action.NewsListAction"
                 parameter="/WEB-INF/jsp/index.jsp">
 
-            <forward name="success" path="/WEB-INF/jsp/index.jsp"/>
+            <forward name="success" path="/WEB-INF/jsp/news-list.jsp"/>
         </action>
 
 
@@ -29,10 +29,14 @@
                 name="NewsForm"
                 input="/WEB-INF/jsp/add-form.jsp">
 
-            <forward name="success" path="/WEB-INF/jsp/index.jsp"/>
+            <forward name="success" path="/NewsList.do"/>
             <forward name="fail" path="/WEB-INF/jsp/add-form.jsp"/>
 
         </action>
+
+        <action path="/Cancel"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="/WEB-INF/jsp/news-list.jsp"/>
 
     </action-mappings>
 

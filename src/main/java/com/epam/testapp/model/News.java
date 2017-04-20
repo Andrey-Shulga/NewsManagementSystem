@@ -21,7 +21,7 @@ public class News implements BaseEntity, Serializable {
     private String title;
 
     @Column(name = "date")
-    private Date date = new Date();
+    private Date date;
 
     @Column(name = "brief")
     private String brief;
