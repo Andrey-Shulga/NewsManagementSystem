@@ -45,3 +45,20 @@ Planes on 20.04.2017
 - Make validation rules for input fields
 - Implement interface and error messages localization on 2 language using resource bundle
 - Add actions to change interface languages
+
+Done on 20.04.2017
+
+- Added filter for force input data encoding to UTF8
+- Got news list from database through Hibernate criteria API
+- Output news list from database on jsp page
+- Implemented UI and error messages localization on 2 language using resource bundle
+- Implemented actions to change interface language
+- Added Spring integrations
+- Replaced all stateless objects from Java creation on Spring beans injection
+
+Planes on 21.04.2017
+
+- Add validation configuration for form fields
+- Make validation rules config for input's fields
+- Add features for View/Edit single news
+- Add feature for deleting one or more news
