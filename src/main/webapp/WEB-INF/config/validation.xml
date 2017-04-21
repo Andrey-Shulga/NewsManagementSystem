@@ -23,19 +23,34 @@
                 </var>
             </field>
 
-            <field property="news.date" depends="required, maxlength">
+            <field property="news.brief" depends="required, maxlength">
                 <msg key="errors.required" name="required"/>
                 <msg key="errors.maxlength" name="maxlength"/>
 
-                <arg name="required" key="add.news.label.date" position="0" resource="true"/>
-                <arg name="maxlength" key="add.news.label.date" position="0" resource="true"/>
+                <arg name="required" key="add.news.label.brief" position="0" resource="true"/>
+                <arg name="maxlength" key="add.news.label.brief" position="0" resource="true"/>
 
                 <arg key="${var:maxlength}" position="1" resource="false"/>
                 <var>
                     <var-name>maxlength</var-name>
-                    <var-value>10</var-value>
+                    <var-value>500</var-value>
                 </var>
             </field>
+
+            <field property="news.content" depends="required, maxlength">
+                <msg key="errors.required" name="required"/>
+                <msg key="errors.maxlength" name="maxlength"/>
+
+                <arg name="required" key="add.news.label.content" position="0" resource="true"/>
+                <arg name="maxlength" key="add.news.label.content" position="0" resource="true"/>
+
+                <arg key="${var:maxlength}" position="1" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>2048</var-value>
+                </var>
+            </field>
+
         </form>
     </formset>
 </form-validation>
