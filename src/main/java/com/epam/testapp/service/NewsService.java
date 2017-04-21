@@ -17,14 +17,12 @@ public class NewsService {
     public News save(News news) {
 
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-
         News savedNews = newsDao.save(news);
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
         return savedNews;
     }
 
     public List<News> getAll() {
-
 
         List<News> newsList = newsDao.findAll();
 

@@ -1,14 +1,26 @@
 <%@ taglib prefix="logic" uri="http://jakarta.apache.org/struts/tags-logic" %>
 <%@ taglib prefix="bean" uri="http://jakarta.apache.org/struts/tags-bean" %>
+<%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript">
+        function editForm() {
+            document.forms[0].action = "/NewsViewAction.do?method=edit"
+            document.forms[0].submit();
+        }
+    </script>
+    <script type="text/javascript">
+        function deleteForm() {
+            document.forms[0].action = "/NewsViewAction.do?method=delete"
+            document.forms[0].submit();
+        }
+    </script>
 </head>
 <body>
 <div id="body">
     <br>
-
 
     <table border="0">
 
@@ -68,6 +80,24 @@
         </div>
 
     </table>
+    <html:form action="/NewsViewAction">
+
+
+        <html:hidden property="news.title"/>
+        <input type="hidden" value="${news.date}"/>
+        <html:hidden property="news.brief"/>
+        <html:hidden property="news.content"/>
+
+        <html:text property="news.id"/>
+
+        <html:submit property="method" onclick="editForm()">
+            <bean:message key="news.view.button.edit"/>
+        </html:submit>
+        <html:submit property="method" onclick="deleteForm()">
+            <bean:message key="news.view.button.delete"/>
+        </html:submit>
+    </html:form>
+
 
 
 </div>

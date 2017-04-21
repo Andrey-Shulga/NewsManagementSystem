@@ -20,7 +20,7 @@ public abstract class JdbcGenericDao<T extends BaseEntity> implements Dao<T> {
     @Override
     public T save(T entity) {
 
-        HibernateUtil.getSessionFactory().getCurrentSession().save(entity);
+        HibernateUtil.getSessionFactory().getCurrentSession().saveOrUpdate(entity);
         log.debug("Saved entity {}", entity);
         return entity;
     }
