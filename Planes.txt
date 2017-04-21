@@ -62,3 +62,11 @@ Planes on 21.04.2017
 - Make validation rules config for input's fields
 - Add features for View/Edit single news
 - Add feature for deleting one or more news
+
+Done on 21.04.2017
+
+- Added validation configuration for form's fields
+- Made validation rules for all input's fields
+- Output validation errors on jsp
+- Added view single news after adding
+- Added feature for edit and save news

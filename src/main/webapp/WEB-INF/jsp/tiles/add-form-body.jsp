@@ -4,12 +4,13 @@
 <%@ taglib prefix="nested" uri="http://jakarta.apache.org/struts/tags-nested" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="input" uri="http://jakarta.apache.org/struts/tags-html" %>
-<%@ taglib prefix="htm" uri="http://jakarta.apache.org/struts/tags-html" %>
+<%@ taglib prefix="htm" uri="http://jakarta.apache.org/struts/tags-html"%>
+<%@ taglib prefix="logic" uri="http://jakarta.apache.org/struts/tags-logic" %>
+
 <jsp:useBean id="now" class="java.util.Date" scope="request"/>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 </head>
 <body>
 
@@ -18,7 +19,7 @@
     <html:errors/>
     <html:form action="/AddNews" method="POST">
 
-        <html:hidden property="news.id" value="${id}"/>
+    <html:hidden property="news.id" value="${news.id}"/>
 
     <table border="0">
 
@@ -36,7 +37,6 @@
             </tr>
         </div>
 
-
         <div style="padding:1px">
             <tr>
                 <td>
@@ -45,11 +45,19 @@
                     </div>
                 </td>
                 <td>
-                    <input type="text" readonly value="<fmt:formatDate type="date" value="${now}"/>" size="10"
-                           maxlength="10"/>
+                    <logic:empty name="news">
+                        <input type="text" readonly value="<fmt:formatDate type="date" value="${now}"/>" size="10"
+                            maxlength="10"/>
+                        <html:hidden property="news.newDate" value="${now}"/>
+                    </logic:empty>
+
+                    <logic:notEmpty name="news">
+                        <input type="text" readonly value="<fmt:formatDate type="date" value="${news.date}"/>" size="10"
+                               maxlength="10"/>
+                        <html:hidden property="news.newDate" value="${news.date}"/>
+                    </logic:notEmpty>
                 </td>
             </tr>
-
         </div>
 
         <div style="padding:1px">
@@ -90,10 +98,9 @@
             <bean:message key="add.news.button.cancel"/>
         </html:reset>
 
+    </html:form>
 
-        </html:form>
 
-
-    </div>
+</div>
 </body>
 </html>

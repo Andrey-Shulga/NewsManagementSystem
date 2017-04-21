@@ -82,13 +82,11 @@
     </table>
     <html:form action="/NewsViewAction">
 
-
+        <html:hidden property="news.id"/>
         <html:hidden property="news.title"/>
-        <input type="hidden" value="${news.date}"/>
+        <html:hidden property="news.newDate"/>
         <html:hidden property="news.brief"/>
         <html:hidden property="news.content"/>
-
-        <html:text property="news.id"/>
 
         <html:submit property="method" onclick="editForm()">
             <bean:message key="news.view.button.edit"/>

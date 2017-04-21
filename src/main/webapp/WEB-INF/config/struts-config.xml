@@ -18,11 +18,10 @@
             <forward name="success" path="/WEB-INF/jsp/news-list.jsp"/>
         </action>
 
-
         <action path="/AddNewsForm"
-                type="com.epam.testapp.action.AddNewsFormAction">
-            <forward name="success" path="/WEB-INF/jsp/add-form.jsp"/>
-        </action>
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="/WEB-INF/jsp/add-form.jsp"/>
+
 
         <action path="/NewsView"
                 type="org.apache.struts.actions.ForwardAction"
@@ -35,7 +34,7 @@
                 scope="request"
                 input="/NewsView.do">
 
-            <forward name="edit" path="/WEB-INF/jsp/add-form.jsp"/>
+            <forward name="edit" path="/AddNewsForm.do"/>
         </action>
 
         <action

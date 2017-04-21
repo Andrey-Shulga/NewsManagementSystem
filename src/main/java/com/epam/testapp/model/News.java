@@ -15,13 +15,16 @@ public class News implements BaseEntity, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "title")
     private String title;
 
     @Column(name = "date")
     private Date date;
+
+    @Transient
+    private String newDate;
 
     @Column(name = "brief")
     private String brief;
@@ -32,19 +35,11 @@ public class News implements BaseEntity, Serializable {
     public News() {
     }
 
-    public News(String title, Date date, String brief, String content) {
-        this.title = title;
-        this.date = date;
-        this.brief = brief;
-        this.content = content;
-    }
-
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -61,8 +56,15 @@ public class News implements BaseEntity, Serializable {
     }
 
     public void setDate(Date date) {
-
         this.date = date;
+    }
+
+    public String getNewDate() {
+        return newDate;
+    }
+
+    public void setNewDate(String newDate) {
+        this.newDate = newDate;
     }
 
     public String getBrief() {
