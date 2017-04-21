@@ -28,4 +28,12 @@ public class NewsService {
 
         return newsList;
     }
+
+    public void delete (News news){
+
+        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
+        newsDao.delete(news);
+        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+
+    }
 }

@@ -35,6 +35,7 @@
                 input="/NewsView.do">
 
             <forward name="edit" path="/AddNewsForm.do"/>
+            <forward name="delete" path="/NewsList.do"/>
         </action>
 
         <action
