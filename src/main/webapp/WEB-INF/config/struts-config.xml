@@ -23,13 +23,17 @@
                 type="org.apache.struts.actions.ForwardAction"
                 parameter="/WEB-INF/jsp/add-form.jsp"/>
 
+        <action path="/NewsView"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="/WEB-INF/jsp/news-view.jsp"/>
+
         <action
                 path="/AddNews"
                 type="com.epam.testapp.action.AddNewsAction"
                 name="NewsForm"
                 input="/WEB-INF/jsp/add-form.jsp">
 
-            <forward name="success" path="/NewsList.do"/>
+            <forward name="success" path="/NewsView.do"/>
             <forward name="fail" path="/WEB-INF/jsp/add-form.jsp"/>
 
         </action>

@@ -1,5 +1,6 @@
 package com.epam.testapp.action;
 
+import com.epam.testapp.model.News;
 import com.epam.testapp.model.NewsForm;
 import com.epam.testapp.service.NewsService;
 import org.apache.struts.action.Action;
@@ -15,6 +16,7 @@ import static com.epam.testapp.constant.ConstantHolder.SUCCESS;
 
 public class AddNewsAction extends Action {
 
+    private static final String NEWS_ATTRIBUTE = "news";
     @Autowired
     private NewsService newsService;
 
@@ -23,7 +25,8 @@ public class AddNewsAction extends Action {
 
         NewsForm newsForm = (NewsForm) form;
         if (newsForm.getNews().getDate() == null) newsForm.getNews().setDate(new Date());
-        newsService.save(newsForm.getNews());
+        News savedNews = newsService.save(newsForm.getNews());
+        request.setAttribute(NEWS_ATTRIBUTE, savedNews);
 
         return mapping.findForward(SUCCESS);
     }
