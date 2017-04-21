@@ -1,12 +1,12 @@
 package com.epam.testapp.model;
 
-import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.validator.ValidatorForm;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class NewsForm extends ActionForm {
+public class NewsForm extends ValidatorForm {
 
     private News news = new News();
     private List<News> newsList;

@@ -14,12 +14,14 @@
 
 <div id="body">
 
+    <html:errors/>
     <html:form action="/AddNews">
 
         <table border="0">
 
-    <div style="padding:16px">
-        <tr><td>
+            <div style="padding:1px">
+
+                <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.title"/>
         </div>
@@ -31,7 +33,7 @@
     </div>
 
 
-    <div style="padding:16px">
+            <div style="padding:1px">
         <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.date"/>
@@ -44,7 +46,7 @@
 
     </div>
 
-    <div style="padding:16px">
+            <div style="padding:1px">
         <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.brief"/>
@@ -54,7 +56,7 @@
             </td></tr>
     </div>
 
-    <div style="padding:16px">
+            <div style="padding:1px">
         <tr><td>
         <div style="float:left;padding-right:8px;">
             <bean:message key="add.news.label.content"/>
@@ -66,7 +68,7 @@
 
     </table>
 
-    <div style="padding:16px">
+    <div style="padding:1px">
         <div style="float:left;padding-right:8px;">
             <html:submit>
                 <bean:message key="add.news.button.submit"/>
