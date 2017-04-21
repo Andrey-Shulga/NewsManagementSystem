@@ -4,17 +4,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+
     <script type="text/javascript">
         function editForm() {
-            document.forms[0].action = "/NewsViewAction.do?method=edit"
+            document.forms[0].action = "/NewsViewAction.do?method=edit";
             document.forms[0].submit();
         }
     </script>
     <script type="text/javascript">
         function deleteForm() {
-            document.forms[0].action = "/NewsViewAction.do?method=delete"
-            document.forms[0].submit();
+            var answer = window.confirm("<bean:message key="confirm.news.delete.message"/>");
+            if(answer) {
+                document.forms[0].action = "/NewsViewAction.do?method=delete";
+                document.forms[0].submit();
+            } else return false;
         }
     </script>
 </head>
@@ -80,7 +83,7 @@
         </div>
 
     </table>
-    <html:form action="/NewsViewAction">
+    <html:form action="/NewsViewAction" >
 
         <html:hidden property="news.id"/>
         <html:hidden property="news.title"/>
@@ -91,7 +94,7 @@
         <html:submit property="method" onclick="editForm()">
             <bean:message key="news.view.button.edit"/>
         </html:submit>
-        <html:submit property="method" onclick="deleteForm()">
+        <html:submit property="method" onclick="return deleteForm()">
             <bean:message key="news.view.button.delete"/>
         </html:submit>
     </html:form>
