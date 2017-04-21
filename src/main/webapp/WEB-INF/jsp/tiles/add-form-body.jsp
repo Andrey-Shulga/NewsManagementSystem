@@ -17,7 +17,9 @@
 
     <html:errors/>
     <html:form action="/AddNews" method="POST">
+
         <html:hidden property="news.id" value="${id}"/>
+
     <table border="0">
 
         <div style="padding:1px">
