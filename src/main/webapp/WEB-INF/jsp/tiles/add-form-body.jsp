@@ -17,7 +17,7 @@
 <div id="body">
 
     <html:errors/>
-    <html:form action="/AddNews" method="POST">
+    <html:form action="/AddNews">
 
     <html:hidden property="news.id" value="${news.id}"/>
 
@@ -90,15 +90,18 @@
 
     <div style="padding:1px">
         <div style="float:left;padding-right:8px;">
-            <html:submit>
+            <html:submit property="method">
                 <bean:message key="add.news.button.submit"/>
             </html:submit>
+            <html:cancel>
+                <bean:message key="add.news.button.cancel"/>
+            </html:cancel>
         </div>
-        <html:reset>
-            <bean:message key="add.news.button.cancel"/>
-        </html:reset>
+
 
     </html:form>
+
+
 
 
 </div>

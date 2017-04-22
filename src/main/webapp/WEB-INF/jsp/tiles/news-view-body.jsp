@@ -5,21 +5,6 @@
 <html>
 <head>
 
-    <script type="text/javascript">
-        function editForm() {
-            document.forms[0].action = "/NewsViewAction.do?method=edit";
-            document.forms[0].submit();
-        }
-    </script>
-    <script type="text/javascript">
-        function deleteForm() {
-            var answer = window.confirm("<bean:message key="confirm.news.delete.message"/>");
-            if(answer) {
-                document.forms[0].action = "/NewsViewAction.do?method=delete";
-                document.forms[0].submit();
-            } else return false;
-        }
-    </script>
 </head>
 <body>
 <div id="body">
@@ -91,7 +76,7 @@
         <html:hidden property="news.brief"/>
         <html:hidden property="news.content"/>
 
-        <html:submit property="method" onclick="editForm()">
+        <html:submit property="method">
             <bean:message key="news.view.button.edit"/>
         </html:submit>
         <html:submit property="method" onclick="return deleteForm()">
@@ -99,6 +84,14 @@
         </html:submit>
     </html:form>
 
+    <script type="text/javascript">
+        function deleteForm() {
+            var answer = window.confirm("<bean:message key="confirm.news.delete.message"/>");
+            if(answer) {
+                return true;
+            } else return false;
+        }
+    </script>
 
 
 </div>

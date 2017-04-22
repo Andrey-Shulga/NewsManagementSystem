@@ -43,16 +43,15 @@
                 type="com.epam.testapp.action.AddNewsAction"
                 name="NewsForm"
                 scope="request"
-                input="/WEB-INF/jsp/add-form.jsp">
+                parameter="method"
+                validate="true"
+                input="/WEB-INF/jsp/add-form.jsp"
+        cancellable="true">
 
-            <forward name="success" path="/NewsView.do"/>
-            <forward name="fail" path="/AddNewsForm.do"/>
+            <forward name="addNews" path="/NewsView.do"/>
+            <forward name="cancel" path="/NewsList.do"/>
 
         </action>
-
-        <action path="/Cancel"
-                type="org.apache.struts.actions.ForwardAction"
-                parameter="/WEB-INF/jsp/news-list.jsp"/>
 
         <action
                 path="/Locale"
