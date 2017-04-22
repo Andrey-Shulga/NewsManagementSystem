@@ -8,6 +8,8 @@
 <%@ taglib prefix="logic" uri="http://jakarta.apache.org/struts/tags-logic" %>
 
 <jsp:useBean id="now" class="java.util.Date" scope="request"/>
+
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,7 +21,7 @@
     <html:errors/>
     <html:form action="/AddNews">
 
-    <html:hidden property="news.id" value="${news.id}"/>
+        <html:hidden  property="news.id" value="${news.id}"/>
 
     <table border="0">
 
@@ -32,7 +34,7 @@
                     </div>
                 </td>
                 <td>
-                    <html:text property="news.title" value="${news.title}" size="100" maxlength="1000"/>
+                    <html:text  property="news.title"  size="100" maxlength="1000"/>
                 </td>
             </tr>
         </div>
@@ -45,9 +47,7 @@
                     </div>
                 </td>
                 <td>
-                    <input type="text" readonly value="<fmt:formatDate type="date" value="${news.date}"/>" size="10"
-                               maxlength="10"/>
-                    <html:hidden property="news.strDate" value="${news.date}"/>
+                    <html:text readonly="true" property="news.strDate" />
                 </td>
             </tr>
         </div>
@@ -60,7 +60,7 @@
                     </div>
                 </td>
                 <td>
-                    <html:textarea property="news.brief" value="${news.brief}"/>
+                    <html:textarea  property="news.brief" />
                 </td>
             </tr>
         </div>
@@ -73,7 +73,7 @@
                     </div>
                 </td>
                 <td>
-                    <html:textarea property="news.content" value="${news.content}"/>
+                    <html:textarea  property="news.content" />
                 </td>
             </tr>
         </div>
@@ -91,11 +91,11 @@
         </div>
 
 
-    </html:form>
+        </html:form>
 
 
 
 
-</div>
+    </div>
 </body>
 </html>

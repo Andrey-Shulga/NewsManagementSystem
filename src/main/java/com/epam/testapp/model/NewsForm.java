@@ -1,10 +1,11 @@
-package com.epam.testapp.Form;
+package com.epam.testapp.model;
 
-import com.epam.testapp.model.News;
+import com.epam.testapp.util.DateConverter;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.ValidatorForm;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 public class NewsForm extends ValidatorForm {
@@ -35,7 +36,9 @@ public class NewsForm extends ValidatorForm {
 
     @Override
     public void reset(ActionMapping mapping, HttpServletRequest request) {
+
+        String currentDate = DateConverter.getDateToStr(new Date());
+        this.news.setStrDate(currentDate);
         super.reset(mapping, request);
-        News news = new News();
     }
 }

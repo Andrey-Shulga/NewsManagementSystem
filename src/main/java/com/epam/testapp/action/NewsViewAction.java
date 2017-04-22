@@ -1,6 +1,6 @@
 package com.epam.testapp.action;
 
-import com.epam.testapp.Form.NewsForm;
+import com.epam.testapp.model.NewsForm;
 import com.epam.testapp.model.News;
 import com.epam.testapp.service.NewsService;
 import org.apache.struts.action.ActionForm;

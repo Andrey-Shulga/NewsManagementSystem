@@ -1,7 +1,7 @@
 package com.epam.testapp.action;
 
 import com.epam.testapp.model.News;
-import com.epam.testapp.Form.NewsForm;
+import com.epam.testapp.model.NewsForm;
 import com.epam.testapp.service.NewsService;
 import com.epam.testapp.util.DateConverter;
 import org.apache.struts.action.ActionForm;
@@ -31,15 +31,8 @@ public class AddNewsAction extends LookupDispatchAction {
 
         NewsForm newsForm = (NewsForm) form;
         String date = newsForm.getNews().getStrDate();
-        Date parsedDate;
-        if (newsForm.getNews().getId()==0) {
-           parsedDate = DateConverter.getNewDate(date);
-        } else {
-            parsedDate = DateConverter.getFromBaseDate(date);
-        }
+        Date parsedDate= DateConverter.getStrToDate(date);
         newsForm.getNews().setDate(parsedDate);
-
-        log.debug("id = {}", newsForm.getNews().getId());
         News savedNews = newsService.save(newsForm.getNews());
         request.setAttribute(NEWS_ATTRIBUTE, savedNews);
 

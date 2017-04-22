@@ -12,4 +12,5 @@
     <bean name="/NewsViewAction" class="com.epam.testapp.action.NewsViewAction"/>
     <bean name="/AddNewsForm" class="com.epam.testapp.action.ShowAddNewsFormAction"/>
 
+
 </beans>

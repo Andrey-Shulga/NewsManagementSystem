@@ -17,8 +17,7 @@ public class LanguageSelectAction extends DispatchAction {
     public ActionForward english(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-        request.getSession().setAttribute(
-                Globals.LOCALE_KEY, Locale.ENGLISH);
+        request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.ENGLISH);
 
         return mapping.findForward(SUCCESS);
     }
