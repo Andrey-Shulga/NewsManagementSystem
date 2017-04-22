@@ -36,4 +36,12 @@ public class NewsService {
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
 
     }
+
+    public News getById (long id){
+
+        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
+        News news = newsDao.findById(News.class, id);
+        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+        return news;
+    }
 }

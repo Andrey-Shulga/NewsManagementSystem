@@ -6,22 +6,24 @@
 <struts-config>
 
     <form-beans>
-        <form-bean name="NewsForm" type="com.epam.testapp.model.NewsForm"/>
+        <form-bean name="NewsForm" type="com.epam.testapp.Form.NewsForm"/>
     </form-beans>
 
     <action-mappings>
 
         <action path="/NewsList"
-                type="com.epam.testapp.action.NewsListAction"
+                type="com.epam.testapp.action.ShowNewsListAction"
                 parameter="/WEB-INF/jsp/index.jsp">
 
             <forward name="success" path="/WEB-INF/jsp/news-list.jsp"/>
         </action>
 
         <action path="/AddNewsForm"
-                type="org.apache.struts.actions.ForwardAction"
-                parameter="/WEB-INF/jsp/add-form.jsp"/>
+                type="com.epam.testapp.action.ShowAddNewsFormAction"
+                parameter="/WEB-INF/jsp/add-form.jsp">
 
+            <forward name="success" path="/WEB-INF/jsp/add-form.jsp"/>
+        </action>
 
         <action path="/NewsView"
                 type="org.apache.struts.actions.ForwardAction"
@@ -34,7 +36,7 @@
                 scope="request"
                 input="/NewsView.do">
 
-            <forward name="edit" path="/AddNewsForm.do"/>
+            <forward name="edit" path="/WEB-INF/jsp/add-form.jsp"/>
             <forward name="delete" path="/NewsList.do"/>
         </action>
 
@@ -46,7 +48,7 @@
                 parameter="method"
                 validate="true"
                 input="/WEB-INF/jsp/add-form.jsp"
-        cancellable="true">
+                cancellable="true">
 
             <forward name="addNews" path="/NewsView.do"/>
             <forward name="cancel" path="/NewsList.do"/>

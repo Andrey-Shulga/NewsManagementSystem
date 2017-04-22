@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "news")
-public class News implements BaseEntity, Serializable {
+public class News extends BaseEntity implements Serializable {
 
     private static final org.slf4j.Logger log = LoggerFactory.getLogger("News");
 
@@ -24,7 +24,7 @@ public class News implements BaseEntity, Serializable {
     private Date date;
 
     @Transient
-    private String newDate;
+    private String strDate;
 
     @Column(name = "brief")
     private String brief;
@@ -59,12 +59,12 @@ public class News implements BaseEntity, Serializable {
         this.date = date;
     }
 
-    public String getNewDate() {
-        return newDate;
+    public String getStrDate() {
+        return strDate;
     }
 
-    public void setNewDate(String newDate) {
-        this.newDate = newDate;
+    public void setStrDate(String strDate) {
+        this.strDate = strDate;
     }
 
     public String getBrief() {

@@ -32,7 +32,7 @@
                     </div>
                 </td>
                 <td>
-                    <html:text property="news.title" size="100" maxlength="1000"/>
+                    <html:text property="news.title" value="${news.title}" size="100" maxlength="1000"/>
                 </td>
             </tr>
         </div>
@@ -45,17 +45,9 @@
                     </div>
                 </td>
                 <td>
-                    <logic:empty name="news">
-                        <input type="text" readonly value="<fmt:formatDate type="date" value="${now}"/>" size="10"
-                            maxlength="10"/>
-                        <html:hidden property="news.newDate" value="${now}"/>
-                    </logic:empty>
-
-                    <logic:notEmpty name="news">
-                        <input type="text" readonly value="<fmt:formatDate type="date" value="${news.date}"/>" size="10"
+                    <input type="text" readonly value="<fmt:formatDate type="date" value="${news.date}"/>" size="10"
                                maxlength="10"/>
-                        <html:hidden property="news.newDate" value="${news.date}"/>
-                    </logic:notEmpty>
+                    <html:hidden property="news.strDate" value="${news.date}"/>
                 </td>
             </tr>
         </div>
@@ -68,7 +60,7 @@
                     </div>
                 </td>
                 <td>
-                    <html:textarea property="news.brief"/>
+                    <html:textarea property="news.brief" value="${news.brief}"/>
                 </td>
             </tr>
         </div>
@@ -81,7 +73,7 @@
                     </div>
                 </td>
                 <td>
-                    <html:textarea property="news.content"/>
+                    <html:textarea property="news.content" value="${news.content}"/>
                 </td>
             </tr>
         </div>

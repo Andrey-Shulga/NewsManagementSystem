@@ -72,7 +72,7 @@
 
         <html:hidden property="news.id"/>
         <html:hidden property="news.title"/>
-        <html:hidden property="news.newDate"/>
+        <html:hidden property="news.strDate"/>
         <html:hidden property="news.brief"/>
         <html:hidden property="news.content"/>
 

@@ -1,5 +1,6 @@
-package com.epam.testapp.model;
+package com.epam.testapp.Form;
 
+import com.epam.testapp.model.News;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.ValidatorForm;
 
