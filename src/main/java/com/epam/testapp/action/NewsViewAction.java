@@ -1,8 +1,8 @@
 package com.epam.testapp.action;
 
 import com.epam.testapp.Form.NewsForm;
+import com.epam.testapp.model.News;
 import com.epam.testapp.service.NewsService;
-import com.epam.testapp.util.DateConverter;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,11 +26,9 @@ public class NewsViewAction extends LookupDispatchAction {
     public ActionForward edit(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         NewsForm newsForm = (NewsForm) form;
-        String date = newsForm.getNews().getStrDate();
-        Date parsedDate = DateConverter.getNewDate(date);
-        newsForm.getNews().setDate(parsedDate);
-
-        request.setAttribute(NEWS_ATTRIBUTE, newsForm.getNews());
+        long id = newsForm.getNews().getId();
+        News news = newsService.getById(id);
+        request.setAttribute(NEWS_ATTRIBUTE, news);
         return mapping.findForward(EDIT);
     }
 
@@ -39,7 +36,6 @@ public class NewsViewAction extends LookupDispatchAction {
 
         NewsForm newsForm = (NewsForm) form;
         newsService.delete(newsForm.getNews());
-
         return mapping.findForward(DELETE);
     }
 

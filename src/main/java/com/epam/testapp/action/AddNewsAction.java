@@ -31,14 +31,19 @@ public class AddNewsAction extends LookupDispatchAction {
 
         NewsForm newsForm = (NewsForm) form;
         String date = newsForm.getNews().getStrDate();
-        Date parsedDate = DateConverter.getNewDate(date);
+        Date parsedDate;
+        if (newsForm.getNews().getId()==0) {
+           parsedDate = DateConverter.getNewDate(date);
+        } else {
+            parsedDate = DateConverter.getFromBaseDate(date);
+        }
         newsForm.getNews().setDate(parsedDate);
 
         log.debug("id = {}", newsForm.getNews().getId());
         News savedNews = newsService.save(newsForm.getNews());
         request.setAttribute(NEWS_ATTRIBUTE, savedNews);
 
-        return mapping.findForward(ADD_NEWS);
+        return mapping.findForward(SUCCESS);
     }
 
 

@@ -30,7 +30,7 @@ public class DateConverter {
 
         Date formatDate = null;
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(FROM_BASE_DATE_PATTERN, Locale.ENGLISH);
+            SimpleDateFormat dateFormat = new SimpleDateFormat(FROM_BASE_DATE_PATTERN);
             formatDate = dateFormat.parse(source);
         } catch (ParseException e) {
             e.printStackTrace();
