@@ -3,6 +3,7 @@ package com.epam.testapp.action;
 import com.epam.testapp.model.NewsForm;
 import com.epam.testapp.model.News;
 import com.epam.testapp.service.NewsService;
+import com.epam.testapp.util.DateConverter;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -28,14 +29,17 @@ public class NewsViewAction extends LookupDispatchAction {
         NewsForm newsForm = (NewsForm) form;
         long id = newsForm.getNews().getId();
         News news = newsService.getById(id);
-        request.setAttribute(NEWS_ATTRIBUTE, news);
-        return mapping.findForward(EDIT);
+        String strDate = DateConverter.getDateToStr(news.getDate());
+        news.setStrDate(strDate);
+        newsForm.setNews(news);
+        return mapping.findForward(SUCCESS);
     }
 
     public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         NewsForm newsForm = (NewsForm) form;
-        newsService.delete(newsForm.getNews());
+        News news = newsService.getById(newsForm.getNews().getId());
+        newsService.delete(news);
         return mapping.findForward(DELETE);
     }
 

@@ -21,7 +21,7 @@
     <html:errors/>
     <html:form action="/AddNews">
 
-        <html:hidden  property="news.id" value="${news.id}"/>
+        <html:hidden  property="news.id"/>
 
     <table border="0">
 

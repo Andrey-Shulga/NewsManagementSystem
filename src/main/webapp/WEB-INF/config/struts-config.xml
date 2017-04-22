@@ -36,7 +36,7 @@
                 scope="request"
                 input="/WEB-INF/jsp/news-view.jsp">
 
-            <forward name="edit" path="/WEB-INF/jsp/add-form.jsp"/>
+            <forward name="success" path="/WEB-INF/jsp/add-form.jsp"/>
             <forward name="delete" path="/NewsList.do"/>
         </action>
 
