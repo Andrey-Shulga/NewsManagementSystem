@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib uri="/WEB-INF/tld/struts-tiles.tld" prefix="tiles" %>
+<%@ taglib prefix="tiles" uri="http://jakarta.apache.org/struts/tags-tiles" %>
 
 <tiles:insert page="/WEB-INF/jsp/tiles/baseLayout.jsp" flush="true">
     <tiles:put name="title" value="Add News"/>

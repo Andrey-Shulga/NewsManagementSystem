@@ -6,13 +6,13 @@ import java.util.Date;
 
 public class DateConverter {
 
-    private static final String FROM_BASE_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    private static final String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_PATTERN);
 
     public static Date getStrToDate(String source){
 
         Date formatDate = null;
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(FROM_BASE_DATE_PATTERN);
             formatDate = dateFormat.parse(source);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -23,7 +23,6 @@ public class DateConverter {
 
     public static String getDateToStr(Date date){
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat(FROM_BASE_DATE_PATTERN);
         return dateFormat.format(date);
     }
 }

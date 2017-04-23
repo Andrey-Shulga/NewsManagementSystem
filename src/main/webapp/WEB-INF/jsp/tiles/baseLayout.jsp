@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
-<%@taglib uri="/WEB-INF/tld/struts-tiles.tld" prefix="tiles" %>
+
+<%@ taglib prefix="tiles" uri="http://jakarta.apache.org/struts/tags-tiles" %>
+<%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 
 <html>
 <head>

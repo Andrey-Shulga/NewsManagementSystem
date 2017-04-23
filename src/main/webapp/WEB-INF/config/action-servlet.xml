@@ -11,6 +11,7 @@
     <bean name="/NewsList" class="com.epam.testapp.action.ShowNewsListAction"/>
     <bean name="/NewsViewAction" class="com.epam.testapp.action.NewsViewAction"/>
     <bean name="/AddNewsForm" class="com.epam.testapp.action.ShowAddNewsFormAction"/>
+    <bean name="/NewsView" class="com.epam.testapp.action.ShowNewsViewAction"/>
 
 
 </beans>

@@ -1,11 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="html" uri="/WEB-INF/tld/struts-html.tld" %>
-<%@ taglib prefix="bean" uri="/WEB-INF/tld/struts-bean.tld" %>
-<%@ taglib prefix="nested" uri="http://jakarta.apache.org/struts/tags-nested" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="input" uri="http://jakarta.apache.org/struts/tags-html" %>
-<%@ taglib prefix="htm" uri="http://jakarta.apache.org/struts/tags-html"%>
 <%@ taglib prefix="logic" uri="http://jakarta.apache.org/struts/tags-logic" %>
+<%@ taglib prefix="bean" uri="http://jakarta.apache.org/struts/tags-bean" %>
+<%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <html>
 <head>

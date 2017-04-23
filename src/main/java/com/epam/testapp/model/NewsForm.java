@@ -5,13 +5,14 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.ValidatorForm;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class NewsForm extends ValidatorForm {
 
     private News news = new News();
-    private List<News> newsList;
+    private List<News> newsList = new ArrayList<>();
 
     public NewsForm() {
 

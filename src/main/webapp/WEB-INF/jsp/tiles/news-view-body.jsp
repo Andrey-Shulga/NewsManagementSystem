@@ -70,11 +70,11 @@
     </table>
     <html:form action="/NewsViewAction" >
 
-        <html:hidden property="news.id"/>
-        <html:hidden property="news.title"/>
-        <html:hidden property="news.strDate"/>
-        <html:hidden property="news.brief"/>
-        <html:hidden property="news.content"/>
+        <html:hidden name="NewsForm" property="news.id"/>
+        <html:hidden name="NewsForm" property="news.title"/>
+        <html:hidden name="NewsForm" property="news.strDate"/>
+        <html:hidden name="NewsForm" property="news.brief"/>
+        <html:hidden name="NewsForm" property="news.content"/>
 
         <html:submit property="method">
             <bean:message key="news.view.button.edit"/>
