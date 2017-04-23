@@ -21,7 +21,7 @@
                     </div>
                 </td>
                 <td>
-                    <bean:write name="news" property="title"/>
+                    <bean:write name="NewsForm" property="news.title"/>
                 </td>
             </tr>
         </div>
@@ -35,7 +35,7 @@
                     </div>
                 </td>
                 <td>
-                    <bean:write name="news" property="date" format="dd/MM/yyyy"/>
+                    <bean:write name="NewsForm" property="news.date" format="dd/MM/yyyy"/>
                 </td>
             </tr>
 
@@ -49,7 +49,7 @@
                     </div>
                 </td>
                 <td>
-                    <bean:write name="news" property="brief"/>
+                    <bean:write name="NewsForm" property="news.brief"/>
                 </td>
             </tr>
         </div>
@@ -62,7 +62,7 @@
                     </div>
                 </td>
                 <td>
-                    <bean:write name="news" property="content"/>
+                    <bean:write name="NewsForm" property="news.content"/>
                 </td>
             </tr>
         </div>

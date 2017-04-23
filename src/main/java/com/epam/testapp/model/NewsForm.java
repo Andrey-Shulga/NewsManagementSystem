@@ -39,6 +39,6 @@ public class NewsForm extends ValidatorForm {
 
         String currentDate = DateConverter.getDateToStr(new Date());
         this.news.setStrDate(currentDate);
-        super.reset(mapping, request);
+
     }
 }

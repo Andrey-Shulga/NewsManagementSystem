@@ -7,9 +7,6 @@
 <%@ taglib prefix="htm" uri="http://jakarta.apache.org/struts/tags-html"%>
 <%@ taglib prefix="logic" uri="http://jakarta.apache.org/struts/tags-logic" %>
 
-<jsp:useBean id="now" class="java.util.Date" scope="request"/>
-
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

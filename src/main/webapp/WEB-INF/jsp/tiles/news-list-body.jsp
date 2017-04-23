@@ -27,12 +27,14 @@
             </table>
             <table border="0">
                 <tr><td>
+
             <html:link  action="/NewsView?id=${newsListId.id}"><bean:message key="news.list.view"/></html:link>&emsp;
                 </td>
                 <td>
             <html:link action="/AddNewsForm?id=${newsListId.id}"><bean:message key="news.list.edit"/></html:link>
                 </td> </tr>
             </table>
+
             <br>
             <br>
         </div>

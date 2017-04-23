@@ -22,7 +22,7 @@ public class ShowAddNewsFormAction extends Action {
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        NewsForm newsForm = (NewsForm) form;
+        NewsForm newsForm = new NewsForm();
         String id = request.getParameter(ID_ATTRIBUTE);
 
         if (id != null) {
