@@ -9,9 +9,9 @@
 
     <bean name="/AddNews" class="com.epam.testapp.action.AddNewsAction"/>
     <bean name="/NewsList" class="com.epam.testapp.action.ShowNewsListAction"/>
-    <bean name="/NewsViewAction" class="com.epam.testapp.action.NewsViewAction"/>
     <bean name="/AddNewsForm" class="com.epam.testapp.action.ShowAddNewsFormAction"/>
     <bean name="/NewsView" class="com.epam.testapp.action.ShowNewsViewAction"/>
+    <bean name="/News" class="com.epam.testapp.action.NewsAction"/>
 
 
 </beans>

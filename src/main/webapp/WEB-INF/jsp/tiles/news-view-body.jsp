@@ -68,21 +68,18 @@
         </div>
 
     </table>
-    <html:form action="/NewsViewAction" >
 
-        <html:hidden name="NewsForm" property="news.id"/>
-        <html:hidden name="NewsForm" property="news.title"/>
-        <html:hidden name="NewsForm" property="news.strDate"/>
-        <html:hidden name="NewsForm" property="news.brief"/>
-        <html:hidden name="NewsForm" property="news.content"/>
-
-        <html:submit property="method">
+    <html:link action="/News?method=edit&id=${news.id}">
+        <button type="button" >
             <bean:message key="news.view.button.edit"/>
-        </html:submit>
-        <html:submit property="method" onclick="return deleteForm()">
+        </button>
+    </html:link>
+
+    <html:link action="/News?method=delete&id=${news.id}">
+        <button type="button" onclick="return deleteForm()">
             <bean:message key="news.view.button.delete"/>
-        </html:submit>
-    </html:form>
+        </button>
+    </html:link>
 
     <script type="text/javascript">
         function deleteForm() {

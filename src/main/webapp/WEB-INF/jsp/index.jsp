@@ -5,7 +5,8 @@
 <%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 <%@ taglib prefix="tiles" uri="http://jakarta.apache.org/struts/tags-tiles" %>
 
-<meta http-equiv="refresh" content="0; url=/NewsList.do">
+<jsp:forward page="/News.do?method=list"/>
+
 <tiles:insert page="/WEB-INF/jsp/tiles/baseLayout.jsp" flush="true">
     <tiles:put name="title" value="News Management"/>
     <tiles:put name="header" value="/WEB-INF/jsp/tiles/header.jsp"/>

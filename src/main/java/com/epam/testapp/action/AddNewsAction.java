@@ -35,6 +35,7 @@ public class AddNewsAction extends LookupDispatchAction {
         newsForm.getNews().setDate(parsedDate);
         News savedNews = newsService.save(newsForm.getNews());
         newsForm.setNews(savedNews);
+        request.setAttribute(NEWS_ATTRIBUTE, savedNews);
 
         return mapping.findForward(SUCCESS);
     }

@@ -11,7 +11,35 @@
 
     <action-mappings>
 
-       <action path="/NewsList"
+        <action path="/News"
+                type="com.epam.testapp.action.NewsAction"
+                parameter="method"
+                name="NewsForm"
+                scope="request"
+                validate="false">
+
+            <forward name="show_list_success" path="/WEB-INF/jsp/news-list.jsp"/>
+            <forward name="show_add_form_success" path="/WEB-INF/jsp/add-form.jsp"/>
+            <forward name="show_news_view_success" path="/WEB-INF/jsp/news-view.jsp"/>
+            <forward name="delete_news_success" path="/News.do?method=list" redirect="true"/>
+        </action>
+
+        <action
+                path="/AddNews"
+                type="com.epam.testapp.action.AddNewsAction"
+                name="NewsForm"
+                scope="request"
+                parameter="method"
+                validate="true"
+                cancellable="true"
+                input="/WEB-INF/jsp/add-form.jsp">
+
+            <forward name="success" path="/WEB-INF/jsp/news-view.jsp"/>
+            <forward name="cancel" path="/NewsList.do"/>
+
+        </action>
+
+        <action path="/NewsList"
                 type="com.epam.testapp.action.ShowNewsListAction"
                 name="NewsForm"
                 input="/WEB-INF/jsp/news-list.jsp">
@@ -20,7 +48,9 @@
         </action>
 
         <action path="/AddNewsForm"
-                type="com.epam.testapp.action.ShowAddNewsFormAction">
+                type="com.epam.testapp.action.ShowAddNewsFormAction"
+                name="NewsForm"
+                validate="false">
 
             <forward name="success" path="/WEB-INF/jsp/add-form.jsp"/>
         </action>
@@ -33,30 +63,6 @@
             <forward name="success" path="/WEB-INF/jsp/news-view.jsp"/>
         </action>
 
-        <action path="/NewsViewAction"
-                name="NewsForm"
-                type="com.epam.testapp.action.NewsViewAction"
-                parameter="method"
-                scope="request"
-                input="/WEB-INF/jsp/news-view.jsp">
-
-            <forward name="success" path="/WEB-INF/jsp/add-form.jsp"/>
-            <forward name="delete" path="/NewsList.do"/>
-        </action>
-
-        <action
-                path="/AddNews"
-                type="com.epam.testapp.action.AddNewsAction"
-                name="NewsForm"
-                scope="request"
-                parameter="method"
-                cancellable="true"
-                input="/WEB-INF/jsp/add-form.jsp">
-
-            <forward name="success" path="/NewsView.do"/>
-            <forward name="cancel" path="/NewsList.do"/>
-
-        </action>
 
         <action
                 path="/Locale"

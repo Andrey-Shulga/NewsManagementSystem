@@ -7,6 +7,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import static com.epam.testapp.constant.ConstantHolder.SUCCESS;
 
 public class ShowNewsViewAction extends Action {
 
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger("ShowNewsViewAction");
     @Autowired
     NewsService newsService;
 
@@ -25,11 +27,13 @@ public class ShowNewsViewAction extends Action {
 
         NewsForm newsForm = (NewsForm) form;
         String id = request.getParameter(ID_ATTRIBUTE);
-
+        log.debug("news view id = {}", id);
+        News news= new News();
         if (id != null) {
-            News news = newsService.getById(Long.parseLong(id));
+            news = newsService.getById(Long.parseLong(id));
             newsForm.setNews(news);
         }
+        request.setAttribute("news", news);
         return mapping.findForward(SUCCESS);
     }
 }
