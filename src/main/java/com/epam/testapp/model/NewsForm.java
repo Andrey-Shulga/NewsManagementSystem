@@ -13,6 +13,7 @@ public class NewsForm extends ValidatorForm {
 
     private News news = new News();
     private List<News> newsList = new ArrayList<>();
+    private long[] newsToDelete;
 
     public NewsForm() {
 
@@ -33,6 +34,14 @@ public class NewsForm extends ValidatorForm {
 
     public void setNewsList(List<News> newsList) {
         this.newsList = newsList;
+    }
+
+    public long[] getNewsToDelete() {
+        return newsToDelete;
+    }
+
+    public void setNewsToDelete(long[] newsToDelete) {
+        this.newsToDelete = newsToDelete;
     }
 
     @Override

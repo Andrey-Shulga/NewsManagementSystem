@@ -35,6 +35,11 @@ public class News extends BaseEntity implements Serializable {
     public News() {
     }
 
+    public News(long newsId) {
+
+        this.id = newsId;
+    }
+
     public long getId() {
         return id;
     }

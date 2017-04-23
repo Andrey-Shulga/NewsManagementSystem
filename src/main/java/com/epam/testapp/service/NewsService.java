@@ -37,6 +37,15 @@ public class NewsService {
 
     }
 
+    public void deleteList (List<News> newsList){
+
+        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
+        for (News news: newsList)
+            newsDao.delete(news);
+        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+
+    }
+
     public News getById (long id){
 
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();

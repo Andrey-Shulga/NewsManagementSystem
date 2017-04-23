@@ -8,18 +8,16 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.epam.testapp.constant.ConstantHolder.*;
 
 public class NewsAction extends DispatchAction {
-
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger("NewsAction");
 
     @Autowired
     NewsService newsService;
@@ -48,6 +46,14 @@ public class NewsAction extends DispatchAction {
 
     public ActionForward view(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 
+        NewsForm newsForm = (NewsForm) form;
+        String id = request.getParameter(ID_ATTRIBUTE);
+        News news = newsService.getById(Long.parseLong(id));
+        String strDate = DateConverter.getDateToStr(news.getDate());
+        news.setStrDate(strDate);
+        newsForm.setNews(news);
+        request.setAttribute(NEWS_ATTRIBUTE, news);
+
         return mapping.findForward(SHOW_NEWS_VIEW_SUCCESS);
     }
 
@@ -70,6 +76,20 @@ public class NewsAction extends DispatchAction {
         newsService.delete(news);
 
         return mapping.findForward(DELETE_NEWS_SUCCESS);
+    }
+
+    public ActionForward deleteNews(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
+
+        NewsForm newsForm = (NewsForm) form;
+        long[] newToDelete = newsForm.getNewsToDelete();
+        List<News> newsList = new ArrayList<>();
+        for (long newsId : newToDelete){
+            News news = new News(newsId);
+            newsList.add(news);
+        }
+        newsService.deleteList(newsList);
+
+        return mapping.findForward(SHOW_LIST_SUCCESS);
     }
 
 
