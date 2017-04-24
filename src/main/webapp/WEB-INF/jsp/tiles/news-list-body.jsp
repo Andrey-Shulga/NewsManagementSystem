@@ -58,11 +58,20 @@
 
         </logic:iterate>
         <logic:notEmpty name="NewsForm" property="newsList">
-        <html:submit>
+        <html:submit onclick="return deleteForm()">
             <bean:message key="news.view.button.delete" />
         </html:submit>
         </logic:notEmpty>
     </html:form>
+
+    <script type="text/javascript">
+        function deleteForm() {
+            var answer = window.confirm("<bean:message key="confirm.news.list.delete.message"/>");
+            if(answer) {
+                return true;
+            } else return false;
+        }
+    </script>
 
 </div>
 </body>
