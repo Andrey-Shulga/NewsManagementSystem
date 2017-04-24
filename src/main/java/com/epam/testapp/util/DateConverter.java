@@ -1,21 +1,26 @@
 package com.epam.testapp.util;
 
+import com.epam.testapp.exception.DateConverterException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateConverter {
 
+
     private static final String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_PATTERN);
 
-    public static Date getStrToDate(String source){
+    public static Date getStrToDate(String source) throws DateConverterException {
 
-        Date formatDate = null;
+        Date formatDate;
         try {
             formatDate = dateFormat.parse(source);
         } catch (ParseException e) {
-            e.printStackTrace();
+
+            throw new DateConverterException(e);
+
         }
         return formatDate;
 
