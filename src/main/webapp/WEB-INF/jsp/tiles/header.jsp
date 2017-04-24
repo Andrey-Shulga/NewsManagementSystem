@@ -8,9 +8,9 @@
 <body>
 <div id="header" align="center" style="font-weight:bold"><h1><bean:message key="header.label"/></h1>
     <br>
-    <div align="right">
-    <html:link page="/Locale.do?method=russian">Русский</html:link>
-    <html:link page="/Locale.do?method=english">English</html:link></div>
+    <div align="left">
+        <html:link page="/Locale.do?locale=ru">Русский</html:link>
+        <html:link page="/Locale.do?locale=en">English</html:link></div>
     </div>
 </body>
 </html>

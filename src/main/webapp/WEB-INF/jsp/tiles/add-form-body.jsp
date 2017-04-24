@@ -3,6 +3,7 @@
 <%@ taglib prefix="bean" uri="http://jakarta.apache.org/struts/tags-bean" %>
 <%@ taglib prefix="html" uri="http://jakarta.apache.org/struts/tags-html" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="input" uri="http://jakarta.apache.org/struts/tags-html" %>
 
 
 <html>
@@ -78,14 +79,13 @@
 
     <div style="padding:1px">
         <div style="float:left;padding-right:8px;">
-            <html:submit property="method">
+            <html:submit>
                 <bean:message key="add.news.button.submit"/>
             </html:submit>
-            <html:cancel>
+            <html:button property="news" onclick="javascript:history.back()">
                 <bean:message key="add.news.button.cancel"/>
-            </html:cancel>
+            </html:button>
         </div>
-
 
         </html:form>
 

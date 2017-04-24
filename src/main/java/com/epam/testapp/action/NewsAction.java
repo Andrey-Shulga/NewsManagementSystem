@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.epam.testapp.constant.ConstantHolder.*;
@@ -77,20 +76,5 @@ public class NewsAction extends DispatchAction {
 
         return mapping.findForward(DELETE_NEWS_SUCCESS);
     }
-
-    public ActionForward deleteNews(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
-
-        NewsForm newsForm = (NewsForm) form;
-        long[] newToDelete = newsForm.getNewsToDelete();
-        List<News> newsList = new ArrayList<>();
-        for (long newsId : newToDelete){
-            News news = new News(newsId);
-            newsList.add(news);
-        }
-        newsService.deleteList(newsList);
-
-        return mapping.findForward(SHOW_LIST_SUCCESS);
-    }
-
 
 }

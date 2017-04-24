@@ -1,33 +1,37 @@
 package com.epam.testapp.action;
 
 import org.apache.struts.Globals;
+import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.actions.DispatchAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
 
-import static com.epam.testapp.constant.ConstantHolder.SUCCESS;
+import static com.epam.testapp.constant.ConstantHolder.*;
 
-public class LanguageSelectAction extends DispatchAction {
+public class LanguageSelectAction extends Action {
 
-    public ActionForward english(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    @Override
+    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        request.getSession().setAttribute(Globals.LOCALE_KEY, Locale.ENGLISH);
-
-        return mapping.findForward(SUCCESS);
+        String locale = request.getParameter(LOCALE_ATTRIBUTE);
+        Locale userLocale = new Locale(locale);
+        request.getSession().setAttribute(Globals.LOCALE_KEY, userLocale);
+        return getCurrentPage(mapping, request);
     }
 
-    public ActionForward russian(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    private ActionForward getCurrentPage(ActionMapping mapping, HttpServletRequest request) {
 
-        java.util.Locale ruLocale = new java.util.Locale("ru");
-        request.getSession().setAttribute(Globals.LOCALE_KEY, ruLocale);
-
-        return mapping.findForward(SUCCESS);
+        String pageURL = request.getHeader(REFERRER);
+        ActionForward currentPage;
+        if (pageURL != null) {
+            currentPage = new ActionForward(pageURL, true);
+        } else {
+            currentPage = mapping.findForward(SUCCESS);
+        }
+        return currentPage;
     }
 }
