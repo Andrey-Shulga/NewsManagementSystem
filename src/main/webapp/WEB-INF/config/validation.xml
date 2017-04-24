@@ -25,12 +25,7 @@
 
             <field property="news.strDate" depends="required">
                 <msg key="errors.required" name="required"/>
-
-
                 <arg name="required" key="add.news.label.date" position="0" resource="true"/>
-
-
-
             </field>
 
             <field property="news.brief" depends="required, maxlength">
@@ -61,6 +56,12 @@
                 </var>
             </field>
 
+            <field property="newsToDelete" depends="required">
+                <msg key="error.multibox.not.selected" name="required"/>
+            </field>
+
         </form>
     </formset>
+
+
 </form-validation>

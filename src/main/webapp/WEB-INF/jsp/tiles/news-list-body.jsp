@@ -13,7 +13,12 @@
     <hr>
     <br>
 
-    <html:form action="/News.do?method=deleteNews">
+    <html:form action="/NewsListDelete">
+        <html:errors/>
+        <html:hidden property="news.title" value="pass_validation"/>
+        <html:hidden property="news.brief" value="pass_validation"/>
+        <html:hidden property="news.content" value="pass_validation"/>
+
         <logic:iterate name="NewsForm" property="newsList" id="news">
 
             <div>

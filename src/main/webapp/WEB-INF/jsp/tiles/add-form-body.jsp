@@ -17,6 +17,7 @@
     <html:form action="/AddNews">
 
         <html:hidden  property="news.id"/>
+        <html:hidden property="newsToDelete" value="pass_validation"/>
 
     <table border="0">
 
