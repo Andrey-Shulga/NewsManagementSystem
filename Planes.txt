@@ -70,3 +70,10 @@ Done on 21.04.2017
 - Output validation errors on jsp
 - Added view single news after adding
 - Added feature for edit and save news
+
+Planes on 25.04.2017
+
+Fist Task application done. I used Postgres RDMS for data store
+I will try to work with Oracle RDMS.
+- Install Oracle in my temporary account (while i don't have my own).
+- Use it for data store of my application.
