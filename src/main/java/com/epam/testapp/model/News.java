@@ -7,29 +7,30 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "news")
+@Table(name = "NEWS", schema = "MYDB")
 public class News extends BaseEntity implements Serializable {
 
     private static final org.slf4j.Logger log = LoggerFactory.getLogger("News");
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NEWS_SEQ")
+    @SequenceGenerator(name = "NEWS_SEQ", sequenceName = "MYDB.NEWS_SEQ", allocationSize = 1)
+    @Column(name = "ID")
     private long id;
 
-    @Column(name = "title")
+    @Column(name = "TITLE")
     private String title;
 
-    @Column(name = "date")
+    @Column(name = "DATETIME")
     private Date date;
 
     @Transient
     private String strDate;
 
-    @Column(name = "brief")
+    @Column(name = "BRIEF")
     private String brief;
 
-    @Column(name = "content")
+    @Column(name = "CONTENT")
     private String content;
 
     public News() {
