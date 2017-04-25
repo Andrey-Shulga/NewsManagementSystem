@@ -1,7 +1,7 @@
 package com.epam.testapp.action;
 
+import com.epam.testapp.form.NewsForm;
 import com.epam.testapp.model.News;
-import com.epam.testapp.model.NewsForm;
 import com.epam.testapp.service.NewsService;
 import com.epam.testapp.util.DateConverter;
 import org.apache.struts.action.ActionForm;

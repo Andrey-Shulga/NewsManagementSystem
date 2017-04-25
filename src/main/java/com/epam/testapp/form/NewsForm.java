@@ -1,5 +1,6 @@
-package com.epam.testapp.model;
+package com.epam.testapp.form;
 
+import com.epam.testapp.model.News;
 import com.epam.testapp.util.DateConverter;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.ValidatorForm;

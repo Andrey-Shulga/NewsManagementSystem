@@ -6,7 +6,7 @@
 <struts-config>
 
     <form-beans>
-        <form-bean name="NewsForm" type="com.epam.testapp.model.NewsForm"/>
+        <form-bean name="NewsForm" type="com.epam.testapp.form.NewsForm"/>
     </form-beans>
 
     <action-mappings>
