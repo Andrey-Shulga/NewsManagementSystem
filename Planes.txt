@@ -81,3 +81,11 @@ I will try to work with Oracle RDMS.
 Done on 25.04.2017
 
 I install and configure Oracle on my temporary account.
+I configure my application config files (hibernate.cfg.xml, context.xml) for Oracle.
+At first I had a problem that column name "date" is reserved word in Oracle and I couldn't
+get data from table through Hibernate. I solved it to change name of column.
+After that I faced with problem that I could't insert data to database
+because Oracle doesn't have autoincrement feature. I solved that problem to add sequence generator for ID column in Oracle.
+And also I have to change JPA annotation for generation strategy for ID field
+from GenerationType.IDENTITY to GenerationType.SEQUENCE and add to annotation the name of created sequence.
+Also I add in JPA annotations name of database schema otherwise Hibernate could't detect table and sequence name.
