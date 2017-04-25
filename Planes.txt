@@ -77,3 +77,7 @@ Fist task application done. I used Postgres RDMS for data store
 I will try to work with Oracle RDMS.
 - Install Oracle in my temporary account (while i don't have my own).
 - Use it for data store of my application.
+
+Done on 25.04.2017
+
+I install and configure Oracle on my temporary account.

@@ -1,7 +1,5 @@
 package com.epam.testapp.model;
 
-import org.slf4j.LoggerFactory;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -9,8 +7,6 @@ import java.util.Date;
 @Entity
 @Table(name = "NEWS", schema = "MYDB")
 public class News extends BaseEntity implements Serializable {
-
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger("News");
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NEWS_SEQ")

@@ -25,9 +25,9 @@ public class DeleteNewsListAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         NewsForm newsForm = (NewsForm) form;
-        long[] newToDelete = newsForm.getNewsToDelete();
+        long[] newsIdToDelete = newsForm.getNewsToDelete();
         List<News> newsList = new ArrayList<>();
-        for (long newsId : newToDelete){
+        for (long newsId : newsIdToDelete) {
             News news = new News(newsId);
             newsList.add(news);
         }

@@ -7,15 +7,12 @@ import com.epam.testapp.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public abstract class JdbcGenericDao<T extends BaseEntity> implements Dao<T> {
-
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger("JdbcGenericDao");
 
     @Override
     public T save(T entity) {
