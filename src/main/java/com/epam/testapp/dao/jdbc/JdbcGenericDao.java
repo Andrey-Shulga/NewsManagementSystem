@@ -21,7 +21,6 @@ public abstract class JdbcGenericDao<T extends BaseEntity> implements Dao<T> {
     public T save(T entity) {
 
         HibernateUtil.getSessionFactory().getCurrentSession().saveOrUpdate(entity);
-        log.debug("Saved entity {}", entity);
         return entity;
     }
 
@@ -29,7 +28,6 @@ public abstract class JdbcGenericDao<T extends BaseEntity> implements Dao<T> {
     public T findById(Class<T> entityClass, long id) {
 
         T entity = (T) HibernateUtil.getSessionFactory().getCurrentSession().get(entityClass, id);
-        log.debug("Found entity {}", entity);
         return entity;
     }
 
@@ -37,7 +35,7 @@ public abstract class JdbcGenericDao<T extends BaseEntity> implements Dao<T> {
     public void delete(T entity) {
 
         HibernateUtil.getSessionFactory().getCurrentSession().delete(entity);
-        log.debug("Deleted entity {}", entity);
+
     }
 
     @Override
