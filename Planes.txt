@@ -88,4 +88,11 @@ After that I faced with problem that I could't insert data to database
 because Oracle doesn't have autoincrement feature. I solved that problem to add sequence generator for ID column in Oracle.
 And also I have to change JPA annotation for generation strategy for ID field
 from GenerationType.IDENTITY to GenerationType.SEQUENCE and add to annotation the name of created sequence.
-Also I add in JPA annotations name of database schema otherwise Hibernate could't detect table and sequence name.
+Also I added in JPA annotations name of database schema otherwise Hibernate could't to detect table and sequence name.
+Read about Oracle data type varchar2.
+Read about Oracle math view.
+Read about Oracle index's types
+
+Planes on 26.04.2017
+
+- Read and learn about Oracle PL/SQL
