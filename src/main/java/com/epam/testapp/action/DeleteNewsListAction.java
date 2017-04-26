@@ -19,7 +19,7 @@ import static com.epam.testapp.constant.ConstantHolder.SUCCESS;
 public class DeleteNewsListAction extends Action {
 
     @Autowired
-    NewsService newsService;
+    private NewsService newsService;
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {

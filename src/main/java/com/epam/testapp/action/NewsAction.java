@@ -19,7 +19,7 @@ import static com.epam.testapp.constant.ConstantHolder.*;
 public class NewsAction extends DispatchAction {
 
     @Autowired
-    NewsService newsService;
+    private NewsService newsService;
 
     public ActionForward list(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 
@@ -45,9 +45,7 @@ public class NewsAction extends DispatchAction {
 
     public ActionForward view(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 
-        NewsForm newsForm = (NewsForm) form;
-        News news = getNews(request);
-        newsForm.setNews(news);
+        News news = getNews(request, form);
         request.setAttribute(NEWS_ATTRIBUTE, news);
 
         return mapping.findForward(SHOW_NEWS_VIEW_SUCCESS);
@@ -55,10 +53,7 @@ public class NewsAction extends DispatchAction {
 
     public ActionForward edit(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 
-        NewsForm newsForm = (NewsForm) form;
-        News news = getNews(request);
-        newsForm.setNews(news);
-
+        getNews(request, form);
         return mapping.findForward(SHOW_ADD_FORM_SUCCESS);
     }
 
@@ -71,11 +66,14 @@ public class NewsAction extends DispatchAction {
         return mapping.findForward(DELETE_NEWS_SUCCESS);
     }
 
-    private News getNews(HttpServletRequest request) {
+    private News getNews(HttpServletRequest request, ActionForm form) {
+
+        NewsForm newsForm = (NewsForm) form;
         String id = request.getParameter(ID_ATTRIBUTE);
         News news = newsService.getById(Long.parseLong(id));
         String strDate = DateConverter.getDateToStr(news.getDate());
         news.setStrDate(strDate);
+        newsForm.setNews(news);
         return news;
     }
 
