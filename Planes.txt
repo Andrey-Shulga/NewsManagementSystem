@@ -96,3 +96,15 @@ Planes on 26.04.2017
 - Read more about Spring
 - Read more about REST, SOAP services
 - Second task
+
+Done on 26.04.2017
+
+- Small refactoring for First task.
+- Read about Oracle PL/SQL
+Language syntax for loops, conditions,  procedures, functions, triggers, best practices
+- Read more about Spring with REST, SOAP services
+Mappings, View and Model, View Resolvers, Response body
+
+Planes on 27.04.2017
+
+- Read about fundamentals of AngularJS.
