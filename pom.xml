@@ -6,7 +6,7 @@
     <artifactId>com.epam.testapp</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>com.epam.testapp Maven Webapp</name>
+    <name>NewsManagement</name>
     <url>http://maven.apache.org</url>
 
     <properties>
