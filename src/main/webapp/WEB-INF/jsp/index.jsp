@@ -8,3 +8,4 @@
 <jsp:forward page="/News.do?method=list"/>
 
 
+
