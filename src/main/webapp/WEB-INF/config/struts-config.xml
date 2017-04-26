@@ -18,6 +18,7 @@
                 scope="request"
                 validate="false">
 
+
             <forward name="show_list_success" path="/WEB-INF/jsp/news-list.jsp" />
             <forward name="show_add_form_success" path="/WEB-INF/jsp/add-form.jsp"/>
             <forward name="show_news_view_success" path="/WEB-INF/jsp/news-view.jsp"/>
