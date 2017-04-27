@@ -32,4 +32,9 @@
         <![CDATA[from News]]>
     </query>
 
+    <sql-query name="saveNews">
+        <return alias="news" class="com.epam.testapp.model.News"/>
+        <![CDATA[INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)]]>
+    </sql-query>
+
 </hibernate-mapping>
