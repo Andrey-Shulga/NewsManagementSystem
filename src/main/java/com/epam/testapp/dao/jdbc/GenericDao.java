@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public abstract class JdbcGenericDao<T extends BaseEntity> implements Dao<T> {
+public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
 
     @Override
     public T save(T entity) {

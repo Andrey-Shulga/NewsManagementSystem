@@ -4,6 +4,7 @@ import com.epam.testapp.dao.NewsDao;
 import com.epam.testapp.model.News;
 import com.epam.testapp.util.HibernateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 public class NewsService {
 
     @Autowired
+    @Qualifier("HibernateJpaNewsDao")
     private NewsDao newsDao;
 
     public News save(News news) {
