@@ -38,20 +38,14 @@ public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
     @Override
     public List<T> findAll() {
 
-        List<T> newsList;
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().getCurrentSession();
-            session.beginTransaction();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
 
-            Criteria criteria = session.createCriteria(News.class);
-            criteria.addOrder(Order.desc("date"));
-            newsList = criteria.list();
+        Criteria criteria = session.createCriteria(News.class);
+        criteria.addOrder(Order.desc("date"));
+        List<T> newsList = criteria.list();
 
-            session.getTransaction().commit();
-        } finally {
-            if (session != null && session.isOpen()) session.close();
-        }
+        session.getTransaction().commit();
         return newsList;
     }
 }

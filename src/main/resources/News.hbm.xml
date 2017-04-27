@@ -28,13 +28,22 @@
         </property>
     </class>
 
-    <query name="findAll">
-        <![CDATA[from News]]>
+    <query name="News.findAll">
+        <![CDATA[from News order by date desc]]>
     </query>
 
-    <sql-query name="saveNews">
+    <query name="News.findById">
+        <![CDATA[from News n where n.id=:id]]>
+    </query>
+
+    <sql-query name="News.saveNews">
         <return alias="news" class="com.epam.testapp.model.News"/>
         <![CDATA[INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)]]>
+    </sql-query>
+
+    <sql-query name="News.updateNews">
+        <return alias="news" class="com.epam.testapp.model.News"/>
+        <![CDATA[UPDATE MYDB.NEWS SET TITLE=:title, DATETIME=:date, BRIEF=:brief, CONTENT=:content WHERE ID=:id]]>
     </sql-query>
 
 </hibernate-mapping>

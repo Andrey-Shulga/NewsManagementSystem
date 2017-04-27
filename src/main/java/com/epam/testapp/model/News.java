@@ -2,14 +2,18 @@ package com.epam.testapp.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Time;
 import java.util.Date;
 
 @NamedQueries({
-        @NamedQuery(name = "findAll", query = "from News order by date desc ")})
-@NamedNativeQueries(
-        @NamedNativeQuery(name = "saveNews", query = "INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
-                "VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)"))
+        @NamedQuery(name = "News.findAll", query = "from News order by date desc"),
+        @NamedQuery(name = "News.findById", query = "from News n where n.id=:id")})
+
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "News.saveNews", query = "INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
+                "VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)"),
+        @NamedNativeQuery(name = "News.updateNews", query = "UPDATE MYDB.NEWS SET TITLE=:title, DATETIME=:date, " +
+                "BRIEF=:brief, CONTENT=:content WHERE ID=:id")
+})
 @Entity
 @Table(name = "NEWS", schema = "MYDB")
 public class News extends BaseEntity implements Serializable {
@@ -34,7 +38,6 @@ public class News extends BaseEntity implements Serializable {
 
     @Column(name = "CONTENT")
     private String content;
-    private Time datetime;
 
     public News() {
     }
@@ -103,37 +106,4 @@ public class News extends BaseEntity implements Serializable {
                 '}';
     }
 
-    public Time getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(Time datetime) {
-        this.datetime = datetime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        News news = (News) o;
-
-        if (id != news.id) return false;
-        if (title != null ? !title.equals(news.title) : news.title != null) return false;
-        if (brief != null ? !brief.equals(news.brief) : news.brief != null) return false;
-        if (content != null ? !content.equals(news.content) : news.content != null) return false;
-        if (datetime != null ? !datetime.equals(news.datetime) : news.datetime != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (datetime != null ? datetime.hashCode() : 0);
-        result = 31 * result + (brief != null ? brief.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        return result;
-    }
 }
