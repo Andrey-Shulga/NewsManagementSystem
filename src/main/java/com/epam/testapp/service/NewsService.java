@@ -13,7 +13,7 @@ import java.util.List;
 public class NewsService {
 
     @Autowired
-    @Qualifier("HibernateJpaNewsDao")
+    @Qualifier("HibernateXmlNewsDao")
     private NewsDao newsDao;
 
     public News save(News news) {

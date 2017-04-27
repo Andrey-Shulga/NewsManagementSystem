@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(name = "findAll", query = "from News")})
 @Entity
 @Table(name = "NEWS", schema = "MYDB")
 public class News extends BaseEntity implements Serializable {

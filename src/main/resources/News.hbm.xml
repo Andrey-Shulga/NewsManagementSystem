@@ -27,4 +27,9 @@
             <column name="CONTENT" sql-type="varchar2(2048)" />
         </property>
     </class>
+
+    <query name="findAll">
+        <![CDATA[from News]]>
+    </query>
+
 </hibernate-mapping>
