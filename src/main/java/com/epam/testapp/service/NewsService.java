@@ -23,14 +23,14 @@ public class NewsService {
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         News savedNews = newsDao.save(news);
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-        log.debug("service {}", savedNews);
         return savedNews;
     }
 
     public List<News> getAll() {
 
+        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         List<News> newsList = newsDao.findAll();
-
+        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
         return newsList;
     }
 
@@ -45,8 +45,7 @@ public class NewsService {
     public void deleteList (List<News> newsList){
 
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-        for (News news: newsList)
-            newsDao.delete(news);
+        newsDao.deleteList(newsList);
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
 
     }

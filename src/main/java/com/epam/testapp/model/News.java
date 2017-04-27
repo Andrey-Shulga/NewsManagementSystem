@@ -6,8 +6,10 @@ import java.util.Date;
 
 @NamedQueries({
         @NamedQuery(name = "News.findAll", query = "from News order by date desc"),
-        @NamedQuery(name = "News.findById", query = "from News n where n.id=:id")})
-
+        @NamedQuery(name = "News.findById", query = "from News n where n.id=:id"),
+        @NamedQuery(name = "News.deleteById", query = "delete from News n where n.id=:id"),
+        @NamedQuery(name = "News.deleteList", query = "delete from News n where n.id in :ids")
+})
 @NamedNativeQueries({
         @NamedNativeQuery(name = "News.saveNews", query = "INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
                 "VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)"),

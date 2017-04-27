@@ -13,4 +13,6 @@ public interface Dao<T extends BaseEntity> {
     T findById(Class<T> entityClass, long id);
 
     void delete(T entity);
+
+    void deleteList(List<T> entityList);
 }

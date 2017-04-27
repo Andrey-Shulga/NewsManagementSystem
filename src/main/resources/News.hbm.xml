@@ -36,6 +36,14 @@
         <![CDATA[from News n where n.id=:id]]>
     </query>
 
+    <query name="News.deleteById">
+        <![CDATA[delete from News n where n.id=:id]]>
+    </query>
+
+    <query name="News.deleteList">
+        <![CDATA[delete from News n where n.id in :ids]]>
+    </query>
+
     <sql-query name="News.saveNews">
         <return alias="news" class="com.epam.testapp.model.News"/>
         <![CDATA[INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)]]>
