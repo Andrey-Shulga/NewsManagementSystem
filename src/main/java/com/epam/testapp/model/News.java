@@ -6,7 +6,10 @@ import java.sql.Time;
 import java.util.Date;
 
 @NamedQueries({
-        @NamedQuery(name = "findAll", query = "from News")})
+        @NamedQuery(name = "findAll", query = "from News order by date desc ")})
+@NamedNativeQueries(
+        @NamedNativeQuery(name = "saveNews", query = "INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
+                "VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)"))
 @Entity
 @Table(name = "NEWS", schema = "MYDB")
 public class News extends BaseEntity implements Serializable {

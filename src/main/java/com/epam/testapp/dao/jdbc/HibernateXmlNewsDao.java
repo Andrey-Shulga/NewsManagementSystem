@@ -26,4 +26,19 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
         session.getTransaction().commit();
         return newsList;
     }
+
+    @Override
+    public News save(News entity) {
+
+        org.hibernate.Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        Query query = session.getNamedQuery("saveNews");
+
+        query.setParameter("title", entity.getTitle());
+        query.setParameter("date", entity.getDate());
+        query.setParameter("brief", entity.getBrief());
+        query.setParameter("content", entity.getContent());
+        query.executeUpdate();
+        return entity;
+    }
 }
