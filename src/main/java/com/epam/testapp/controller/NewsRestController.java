@@ -82,4 +82,11 @@ public class NewsRestController implements NewsController {
         log.debug("deleted entity = {}", value);
         return value;
     }
+
+    @Override
+    public String deleteNewsList(String jsonNewsIds) throws ControllerException {
+
+
+        return null;
+    }
 }

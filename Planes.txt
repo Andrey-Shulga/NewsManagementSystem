@@ -126,5 +126,29 @@ Then I had a problem for getting current entity's ID after inserting it. I solve
 
 Planes on 28.04.2017
 
-- Complete Task2
+- Complete Task 2
 - Continue read "Spring in Action".
+
+Done on 28.04.2017
+
+- Completed Task 2
+- Started Task 3
+Configured application for using Spring dispatcher servlet.
+Implemented Spring rest controller. Done all URL mappings with POST, GET methods for all base application's operations.
+Controller receives json strings into body of POST requests and auto-converted it to Java objects for further service (CRUD) operations.
+Controller receives Java objects from services, converted them to json format and transfer its to front-end.
+
+Week report
+
+- Completed Task 1
+Implemented 3 layers (web, service, dao) web application uses Spring framework like IoC container for beans,
+Struts framework for MVC, Hibernate for database ORM.
+- Completed Task 2
+Implemented 2 kinds of DAO. First uses JPA annotations, second uses Hibernate mapping file for ORM on Oracle database.
+For CRUD operations use Hibernate session, Named queries and Native Named queries.
+There is a possibility for changing DAO implementations through Spring abstraction.
+- Started Task 3
+Implemented Spring Rest controller with URL mappings. For data exchange between web and service layers used Json format.
+
+Planes on 01.05.2017
+- Implement Spring SOAP controller with basic application's operations.
