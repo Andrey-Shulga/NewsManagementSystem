@@ -23,5 +23,5 @@ public interface NewsController {
     public String deleteNews(@RequestBody News jsonBody) throws ControllerException;
 
     @RequestMapping(value = "/delete/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deleteNewsList(@PathVariable String jsonNewsIds) throws ControllerException;
+    public String deleteNewsList(@RequestBody String jsonNewsIds) throws ControllerException;
 }
