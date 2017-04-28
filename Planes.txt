@@ -108,3 +108,23 @@ Mappings, View and Model, View Resolvers, Response body
 Planes on 27.04.2017
 
 - Read about fundamentals of AngularJS.
+
+Done on 27.04.2017
+
+- Read about fundamentals of AngularJS.
+Module, controller, service, fabric and invocation its in DOM.
+- Began read theory "Spring in Action".
+- Task 2
+I implemented 2 DAO implementations for working with database through JPA and Hibernate mapping file with Named queries.
+For using needed DAO implementation I use Spring and its @Qualifier annotation.
+I created and configured Hibernate mapping file hbm.xml.
+I faced that through HQL I couldn't insert new entity in database, only if I take it from another table. I solved it using
+NativeNamed queries. With INSERT native query I had a problem for getting next ID for new entity before inserting, because Oracle
+doesn't have incremented ID's field feature. I solved it use expression "sequence_name.nextval" that given me next ID.
+Then I had a problem for getting current entity's ID after inserting it. I solved it through next query
+"SELECT sequence_name.currval FROM dual".
+
+Planes on 28.04.2017
+
+- Complete Task2
+- Continue read "Spring in Action".
