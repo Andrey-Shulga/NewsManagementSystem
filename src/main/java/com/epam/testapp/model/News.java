@@ -1,11 +1,14 @@
 package com.epam.testapp.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 import static com.epam.testapp.constant.ConstantHolder.*;
 
+@JsonInclude(value = JsonInclude.Include.NON_EMPTY, content = JsonInclude.Include.NON_EMPTY)
 @NamedQueries({
         @NamedQuery(name = FIND_ALL_NAMED_QUERY, query = "from News order by date desc"),
         @NamedQuery(name = FIND_BY_ID_NAMED_QUERY, query = "from News n where n.id=:id"),
