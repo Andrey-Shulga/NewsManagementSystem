@@ -1,6 +1,5 @@
-package com.epam.testapp.dao.jdbc;
+package com.epam.testapp.dao;
 
-import com.epam.testapp.dao.NewsDao;
 import com.epam.testapp.model.News;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;

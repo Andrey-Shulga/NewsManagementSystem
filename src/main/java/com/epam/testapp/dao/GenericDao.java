@@ -1,6 +1,5 @@
-package com.epam.testapp.dao.jdbc;
+package com.epam.testapp.dao;
 
-import com.epam.testapp.dao.Dao;
 import com.epam.testapp.model.BaseEntity;
 import com.epam.testapp.model.News;
 import com.epam.testapp.util.HibernateUtil;
