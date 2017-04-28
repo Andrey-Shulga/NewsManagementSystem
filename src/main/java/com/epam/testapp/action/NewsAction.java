@@ -33,7 +33,7 @@ public class NewsAction extends DispatchAction {
     public ActionForward showNewsForm(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 
         NewsForm newsForm = (NewsForm) form;
-        String id = request.getParameter(ID_ATTRIBUTE);
+        String id = request.getParameter(ID);
 
         if (id != null) {
             News news = newsService.getById(Long.parseLong(id));
@@ -59,7 +59,7 @@ public class NewsAction extends DispatchAction {
 
     public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 
-        String id = request.getParameter(ID_ATTRIBUTE);
+        String id = request.getParameter(ID);
         News news = newsService.getById(Long.parseLong(id));
         newsService.delete(news);
 
@@ -69,7 +69,7 @@ public class NewsAction extends DispatchAction {
     private News getNews(HttpServletRequest request, ActionForm form) {
 
         NewsForm newsForm = (NewsForm) form;
-        String id = request.getParameter(ID_ATTRIBUTE);
+        String id = request.getParameter(ID);
         News news = newsService.getById(Long.parseLong(id));
         String strDate = DateConverter.getDateToStr(news.getDate());
         news.setStrDate(strDate);

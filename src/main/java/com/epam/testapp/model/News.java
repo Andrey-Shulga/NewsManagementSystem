@@ -4,16 +4,18 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+import static com.epam.testapp.constant.ConstantHolder.*;
+
 @NamedQueries({
-        @NamedQuery(name = "News.findAll", query = "from News order by date desc"),
-        @NamedQuery(name = "News.findById", query = "from News n where n.id=:id"),
-        @NamedQuery(name = "News.deleteById", query = "delete from News n where n.id=:id"),
-        @NamedQuery(name = "News.deleteList", query = "delete from News n where n.id in :ids")
+        @NamedQuery(name = FIND_ALL_NAMED_QUERY, query = "from News order by date desc"),
+        @NamedQuery(name = FIND_BY_ID_NAMED_QUERY, query = "from News n where n.id=:id"),
+        @NamedQuery(name = DELETE_BY_ID_NAMED_QUERY, query = "delete from News n where n.id=:id"),
+        @NamedQuery(name = DELETE_NEWS_LIST_NAMED_QUERY, query = "delete from News n where n.id in :ids")
 })
 @NamedNativeQueries({
-        @NamedNativeQuery(name = "News.saveNews", query = "INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
+        @NamedNativeQuery(name = SAVE_NEWS_NAMED_QUERY, query = "INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
                 "VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)"),
-        @NamedNativeQuery(name = "News.updateNews", query = "UPDATE MYDB.NEWS SET TITLE=:title, DATETIME=:date, " +
+        @NamedNativeQuery(name = UPDATE_NEWS_NAMED_QUERY, query = "UPDATE MYDB.NEWS SET TITLE=:title, DATETIME=:date, " +
                 "BRIEF=:brief, CONTENT=:content WHERE ID=:id")
 })
 @Entity
