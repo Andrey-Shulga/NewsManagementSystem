@@ -82,7 +82,7 @@
 
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"
-                      value="/WEB-INF/config/action-servlet.xml, /WEB-INF/config/applicationContext.xml"/>
+                      value="/WEB-INF/config/struts-servlet.xml, /WEB-INF/config/applicationContext.xml"/>
     </plug-in>
 
 </struts-config>

@@ -3,6 +3,7 @@ package com.epam.testapp.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -21,6 +22,7 @@ import static com.epam.testapp.constant.ConstantHolder.*;
         @NamedNativeQuery(name = UPDATE_NEWS_NAMED_QUERY, query = "UPDATE MYDB.NEWS SET TITLE=:title, DATETIME=:date, " +
                 "BRIEF=:brief, CONTENT=:content WHERE ID=:id")
 })
+@XmlRootElement(name = "news")
 @Entity
 @Table(name = "NEWS", schema = "MYDB")
 public class News extends BaseEntity implements Serializable {
