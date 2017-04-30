@@ -3,6 +3,8 @@ package com.epam.testapp.soap;
 import com.epam.testapp.exception.ControllerException;
 import com.epam.testapp.model.News;
 import com.epam.testapp.service.NewsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +15,8 @@ import java.util.List;
 @Component
 @WebService(endpointInterface = "com.epam.testapp.soap.NewsSoap", serviceName = "News")
 public class NewsSoapWebService implements NewsSoap<News> {
+
+    private static final Logger log = LoggerFactory.getLogger("NewsSoapWebService");
 
     @Autowired
     private NewsService newsService;
@@ -27,24 +31,29 @@ public class NewsSoapWebService implements NewsSoap<News> {
     @Override
     @WebMethod
     public News getNews(long id) throws ControllerException {
-        return null;
+
+        return newsService.getById(id);
     }
 
     @Override
     @WebMethod
     public News saveNews(News news) throws ControllerException {
-        return null;
+
+        log.debug("save = {}", news);
+        return newsService.save(news);
     }
 
     @Override
     @WebMethod
     public void deleteNews(News news) throws ControllerException {
 
+        newsService.delete(news);
     }
 
     @Override
     @WebMethod
     public void deleteNewsList(List<News> newsList) throws ControllerException {
 
+        newsService.deleteList(newsList);
     }
 }
