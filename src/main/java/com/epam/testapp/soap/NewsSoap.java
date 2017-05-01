@@ -15,7 +15,7 @@ public interface NewsSoap<T extends BaseEntity> {
 
     T saveNews(T news) throws ControllerException;
 
-    void deleteNews(T news) throws ControllerException;
+    void deleteNews(long id) throws ControllerException;
 
-    void deleteNewsList(List<T> newsList) throws ControllerException;
+    void deleteNewsList(List<Long> idList) throws ControllerException;
 }

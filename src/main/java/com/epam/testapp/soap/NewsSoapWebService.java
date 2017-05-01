@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -45,15 +46,21 @@ public class NewsSoapWebService implements NewsSoap<News> {
 
     @Override
     @WebMethod
-    public void deleteNews(News news) throws ControllerException {
+    public void deleteNews(long id) throws ControllerException {
 
+        News news = new News(id);
         newsService.delete(news);
     }
 
     @Override
     @WebMethod
-    public void deleteNewsList(List<News> newsList) throws ControllerException {
+    public void deleteNewsList(List<Long> idList) throws ControllerException {
 
+        List<News> newsList = new ArrayList<>();
+        for (Long id : idList) {
+            News news = new News(id);
+            newsList.add(news);
+        }
         newsService.deleteList(newsList);
     }
 }

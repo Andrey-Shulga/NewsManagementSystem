@@ -3,7 +3,7 @@ package com.epam.testapp.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,6 +23,8 @@ import static com.epam.testapp.constant.ConstantHolder.*;
                 "BRIEF=:brief, CONTENT=:content WHERE ID=:id")
 })
 @XmlRootElement(name = "news")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "News", propOrder = {"id", "title", "date", "brief", "content"})
 @Entity
 @Table(name = "NEWS", schema = "MYDB")
 public class News extends BaseEntity implements Serializable {
@@ -37,9 +39,10 @@ public class News extends BaseEntity implements Serializable {
     private String title;
 
     @Column(name = "DATETIME")
-    private Date date;
+    private Date date = new Date();
 
     @Transient
+    @XmlTransient
     private String strDate;
 
     @Column(name = "BRIEF")
