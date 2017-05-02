@@ -150,6 +150,7 @@ There is a possibility for changing DAO implementations through Spring abstracti
 - Started Task 3
 Implemented Spring Rest controller with URL mappings. For data exchange between web and service layers used Json format.
 
-Planes on 01.05.2017
+Planes on 02.05.2017
 - Implement Spring SOAP web service with basic application's operations.
-- Begin read about Angular2 for front-end client implementation.
+- Install node.js and create basic Angular2 project in IDE
+Begin read about Angular2 for front-end client implementation.
