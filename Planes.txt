@@ -167,3 +167,25 @@ Planes on 03.05.2017
 - Angular2
 Add data transfer from front-end to back-end through REST.
 Add output data from back-end part.
+
+Done on 03.05.2017
+
+- Angular2
+Implemented form input data validation before submit
+Implemented saving data from form after submit on back-end.
+Implemented output data after saving on page
+Implemented edit data feature
+I faced with problem to send data between two servers - from node.js to tomcat, tomcat not allow request without CROS headers
+and I solved with adding filter in tomcat  server.xml config CorsFilter setting.
+Now I have a encoding problem with response from tomcat, tomcat response on request with headers not utf-8 and i receive
+json in russian language with broken characters.
+
+
+Planes on 04.05.2017
+
+-Tomcat
+Solve problem with response headers from tomcat
+- Angular2
+Delete data by id
+Edit data by id
+Output list of data on page
