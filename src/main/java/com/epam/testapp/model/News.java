@@ -43,6 +43,7 @@ public class News extends BaseEntity implements Serializable {
 
     @Transient
     @XmlTransient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String strDate;
 
     @Column(name = "BRIEF")

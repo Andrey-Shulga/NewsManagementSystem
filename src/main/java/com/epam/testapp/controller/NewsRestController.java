@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL;
+
 @RestController
 @RequestMapping("/rest/news")
 public class NewsRestController implements NewsController {
@@ -24,8 +26,13 @@ public class NewsRestController implements NewsController {
     @Autowired
     private NewsService newsService;
 
+    public NewsRestController() {
+
+        mapper.setSerializationInclusion(NON_NULL);
+    }
+
     @Override
-    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getNewsList() throws ControllerException {
 
         List<News> newsList = newsService.getAll();
@@ -40,7 +47,7 @@ public class NewsRestController implements NewsController {
     }
 
     @Override
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getNews(@PathVariable String id) throws ControllerException {
 
         News news = newsService.getById(Long.parseLong(id));
@@ -57,7 +64,7 @@ public class NewsRestController implements NewsController {
     }
 
     @Override
-    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String saveNews(@RequestBody News jsonBody) throws ControllerException {
 
         String value;
@@ -72,7 +79,7 @@ public class NewsRestController implements NewsController {
     }
 
     @Override
-    @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String deleteNews(@RequestBody News jsonBody) throws ControllerException {
 
         String value;
@@ -87,7 +94,7 @@ public class NewsRestController implements NewsController {
     }
 
     @Override
-    @RequestMapping(value = "/delete/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/delete/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String deleteNewsList(@RequestBody String jsonNewsIds) throws ControllerException {
 
         String value;
