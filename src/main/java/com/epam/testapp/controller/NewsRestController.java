@@ -43,6 +43,7 @@ public class NewsRestController implements NewsController {
         } catch (IOException e) {
             throw new ControllerException(e);
         }
+
         return value;
     }
 
@@ -58,7 +59,7 @@ public class NewsRestController implements NewsController {
         } catch (IOException e) {
             throw new ControllerException(e);
         }
-        log.debug("get entity = {}", value);
+        log.debug("get entity by id = {}", value);
         return value;
 
     }
