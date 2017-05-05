@@ -216,13 +216,20 @@ Added dependencies and config for Spring security.
 
 Week report
 
-- Implemented SOAP web services through Apache CFX
+- SOAP
+Implemented SOAP web services through Apache CFX
 For SOAP I generate validation WSDL schema from exist entity through JAXB annotation.
 I create SOAP web service interface and its implementation by using Apache CFX annotations @WebService, @WebMethod.
 SOAP web service generate link where can to find WSDL schema with requirements for valid SOAP's requests at web service.
 
-- Prepared environment for Angular2 development.
-I install node.js server, package manager npm and other necessary libraries for development.
-I implemented front-end client on Angular2, which can exchange with back-end server through its REST API uses JSON format.
+- Angular 2
+I prepared environment for Angular2 development: install node.js server, package manager npm and other necessary libraries
+for development.
+I implemented front-end client on Angular2, which can exchange (send and receive) with my back-end server through its
+REST API uses JSON format.
 
-- Started the implementation of app. authorization through Spring Security framework.
+- Spring Security
+Started the implementation of app. authorization through Spring Security framework.
+I add necessary dependencies and spring config xml file.
+In config file I add settings for using spring security annotations on controller's methods and EL tags for JSP pages.
+I create login form for redirecting on it unauthorized users.
