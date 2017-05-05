@@ -20,11 +20,11 @@
         <intercept-url pattern="/user/**" access="hasRole('USER')"/>
 
 
-        <form-login login-page="/login.html"
+        <form-login login-page="/login"
                     username-parameter="j_username"
                     password-parameter="j_password"
                     login-processing-url="/j_spring_security_check"
-                    authentication-failure-url="/login.html?error=true"/>
+                    authentication-failure-url="/login.jsp?error=true"/>
 
         <logout logout-url="/j_spring_security_logout" logout-success-url="/"/>
 
