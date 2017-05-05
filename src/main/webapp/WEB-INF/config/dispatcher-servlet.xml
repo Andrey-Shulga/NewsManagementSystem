@@ -25,10 +25,11 @@ http://www.springframework.org/schema/security/spring-security.xsd">
     </mvc:annotation-driven>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-
+    <mvc:view-controller path="/login.html" view-name="/login"/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <!--Spring security enabled annotations-->

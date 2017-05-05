@@ -18,7 +18,7 @@
                 Вы не вошли в приложение
             </c:if>
         </li>
-        <li><a style="color: Green;" href="<c:url value= "../login.jsp"/>">Login</a></li>
+        <li><a style="color: Green;" href="<c:url value= "/login.html"/>">Login</a></li>
     </c:if>
 
     <c:if test="${isUSer}">

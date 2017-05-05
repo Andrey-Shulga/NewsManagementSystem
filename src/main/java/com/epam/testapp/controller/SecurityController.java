@@ -15,4 +15,6 @@ public class SecurityController {
 
         return new ModelAndView("redirect:/News.do?method=list");
     }
+
+
 }
