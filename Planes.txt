@@ -189,3 +189,20 @@ Solve problem with response headers from tomcat
 Delete data by id
 Edit data by id
 Output list of data on page
+
+Done on 04.05.2017
+
+-Tomcat
+Solved problem with response encoding headers from tomcat. I added annotation to controller
+produces = MediaType.APPLICATION_JSON_UTF8_VALUE
+- Angular2
+Implemented delete single data by id with confirmation modal dialog
+Implemented output list of data on page.
+Implemented view and edit data from list.
+
+Planes on 05.05.2017
+
+- Angular2
+Add delete selected data (one or several) from list.
+
+- Begin make authorization through Spring Security.
