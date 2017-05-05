@@ -212,10 +212,11 @@ Done on 05.05.2017
 - Angular2
 Implemented delete data from list. Delete button will not available until at least one checkbox select.
 Angular2 client completed.
+Added dependencies and config for Spring security.
 
 Week report
 
 - Implemented SOAP web services through Apache CFX
 - Prepared environment for Angular2 development (node.js, npm)
 - Implemented front-end client on Angular2
-- Started the implementation of app. authorization through Spring Security framework
+- Started the implementation of app. authorization through Spring Security framework.
