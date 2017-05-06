@@ -17,7 +17,7 @@
         <junit.version>4.12</junit.version>
         <javax.version>7.0</javax.version>
         <hibernate.version>4.3.6.Final</hibernate.version>
-        <spring.version>4.3.0.RELEASE</spring.version>
+        <spring.version>4.3.5.RELEASE</spring.version>
         <spring-security-version>4.2.2.RELEASE</spring-security-version>
         <cxf-rt-frontend-jaxws.version>3.1.11</cxf-rt-frontend-jaxws.version>
     </properties>
@@ -36,6 +36,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
             <version>${spring.version}</version>
         </dependency>
 
@@ -70,6 +76,12 @@
         </dependency>
 
         <!-- Spring security dependency-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
@@ -212,13 +224,27 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <scope>runtime</scope>
             <version>${slf4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
             <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.5</version>
+            <scope>runtime</scope>
         </dependency>
 
     </dependencies>

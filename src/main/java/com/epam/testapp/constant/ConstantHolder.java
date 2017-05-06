@@ -19,7 +19,7 @@ public class ConstantHolder {
     public static final String FIND_BY_ID_NAMED_QUERY = "News.findById";
     public static final String DELETE_BY_ID_NAMED_QUERY = "News.deleteById";
     public static final String DELETE_NEWS_LIST_NAMED_QUERY = "News.deleteList";
-    public static final String GET_LAST_INSERTED_ID_QUERY = "SELECT MYDB.NEWS_SEQ.currval FROM dual";
+    public static final String GET_LAST_INSERTED_ID_QUERY = "SELECT NEWS_SEQ.currval FROM dual";
 
     public static final String TITLE = "title";
     public static final String DATE = "date";

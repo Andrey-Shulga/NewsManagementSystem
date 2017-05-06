@@ -30,12 +30,6 @@
         <li><a style="color: red;" href="<c:url value= "/j_spring_security_logout"/>">Logout</a></li>
     </c:if>
 
-
-    <h1><bean:message key="header.label"/></h1>
-    <br>
-    <div align="left">
-        <html:link page="/Locale.do?locale=ru">Русский</html:link>
-        <html:link page="/Locale.do?locale=en">English</html:link></div>
-    </div>
+</div>
 </body>
 </html>

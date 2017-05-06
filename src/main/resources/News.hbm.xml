@@ -4,14 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.epam.testapp.model.News" table="NEWS" schema="MYDB">
+    <class name="com.epam.testapp.model.News" table="NEWS">
         <id name="id">
             <column name="ID" sql-type="number(*)"/>
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
                 <param name="prefer_sequence_per_entity">true</param>
                 <param name="optimizer">none</param>
                 <param name="increment_size">1</param>
-                <param name="sequence_name">MYDB.NEWS_SEQ</param>
+                <param name="sequence_name">NEWS_SEQ</param>
             </generator>
         </id>
         <property name="title">
@@ -46,12 +46,12 @@
 
     <sql-query name="News.saveNews">
         <return alias="news" class="com.epam.testapp.model.News"/>
-        <![CDATA[INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)]]>
+        <![CDATA[INSERT INTO NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) VALUES (NEWS_SEQ.nextval, :title, :date, :brief, :content)]]>
     </sql-query>
 
     <sql-query name="News.updateNews">
         <return alias="news" class="com.epam.testapp.model.News"/>
-        <![CDATA[UPDATE MYDB.NEWS SET TITLE=:title, DATETIME=:date, BRIEF=:brief, CONTENT=:content WHERE ID=:id]]>
+        <![CDATA[UPDATE NEWS SET TITLE=:title, DATETIME=:date, BRIEF=:brief, CONTENT=:content WHERE ID=:id]]>
     </sql-query>
 
 </hibernate-mapping>

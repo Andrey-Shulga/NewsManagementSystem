@@ -17,21 +17,21 @@ import static com.epam.testapp.constant.ConstantHolder.*;
         @NamedQuery(name = DELETE_NEWS_LIST_NAMED_QUERY, query = "delete from News n where n.id in :ids")
 })
 @NamedNativeQueries({
-        @NamedNativeQuery(name = SAVE_NEWS_NAMED_QUERY, query = "INSERT INTO MYDB.NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
-                "VALUES (MYDB.NEWS_SEQ.nextval, :title, :date, :brief, :content)"),
-        @NamedNativeQuery(name = UPDATE_NEWS_NAMED_QUERY, query = "UPDATE MYDB.NEWS SET TITLE=:title, DATETIME=:date, " +
+        @NamedNativeQuery(name = SAVE_NEWS_NAMED_QUERY, query = "INSERT INTO NEWS (ID, TITLE, DATETIME, BRIEF, CONTENT) " +
+                "VALUES (NEWS_SEQ.nextval, :title, :date, :brief, :content)"),
+        @NamedNativeQuery(name = UPDATE_NEWS_NAMED_QUERY, query = "UPDATE NEWS SET TITLE=:title, DATETIME=:date, " +
                 "BRIEF=:brief, CONTENT=:content WHERE ID=:id")
 })
 @XmlRootElement(name = "news")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "News", propOrder = {"id", "title", "date", "brief", "content"})
 @Entity
-@Table(name = "NEWS", schema = "MYDB")
+@Table(name = "NEWS")
 public class News extends BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NEWS_SEQ")
-    @SequenceGenerator(name = "NEWS_SEQ", sequenceName = "MYDB.NEWS_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "NEWS_SEQ", sequenceName = "NEWS_SEQ", allocationSize = 1)
     @Column(name = "ID")
     private long id;
 

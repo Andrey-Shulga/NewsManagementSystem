@@ -5,9 +5,10 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<security:authorize access="hasAnyRole('ADMIN', 'USER')" var="isUSer"/>
 <html>
 <head>
-    <spring:url value="/resources/css/bootstrap.css" var="bootstrap"/>
+    <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap"/>
     <spring:url value="/resources/css/signin.css" var="signin"/>
     <link href="${bootstrap}" rel="stylesheet"/>
     <link href="${signin}" rel="stylesheet"/>
@@ -15,8 +16,8 @@
 <body>
 <div id="body">
 
-    <form name="form" action="j_spring_security_check" method="post" class="form-signin">
-        <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_USER', 'ROLE_USER')" var="isUSer"/>
+    <form name="form" action="/login" method="post" class="form-signin">
+
         <span style="font-size: x-small; color: red; ">
             <c:if test="${not isUSer}">
                 <c:if test="${empty param.error}">
@@ -38,11 +39,11 @@
 
         <h2 class="form-signin-heading">Пожалуйста войдите</h2>
 
-        <label for="inputEmail" class="sr-only"><spring:message code="email" text="Email"/></label>
-        <input id="inputEmail" class="form-control" name="j_username" value="admin@gmail.com" required autofocus/>
+        <label for="inputEmail" class="sr-only"><spring:message text="Email"/></label>
+        <input id="inputEmail" class="form-control" name="username" value="admin" required autofocus/>
 
-        <label for="inputPassword" class="sr-only"><spring:message code="pass" text="Password"/></label>
-        <input type="password" id="inputPassword" class="form-control" name="j_password" value="12345" required/>
+        <label for="inputPassword" class="sr-only"><spring:message text="Password"/></label>
+        <input type="password" id="inputPassword" class="form-control" name="password" value="admin" required/>
 
         <div class="checkbox">
             <label>

@@ -9,8 +9,8 @@
               maxAge="0"
               maxIdle="3"
               name="jdbc/mydb"
-              username="system"
-              password="system"
+              username="testdb"
+              password="test"
               type="javax.sql.DataSource"
               url="jdbc:oracle:thin:@localhost:1521:"/>
 </Context>
