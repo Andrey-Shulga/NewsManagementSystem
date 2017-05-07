@@ -4,11 +4,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
+
 </head>
 <body>
 <div id="body">
-    <h1><bean:message key="access.denied.message"/></h1>
+    <h2 align="center"><bean:message key="access.denied.message"/></h2>
 
 </div>
 </body>

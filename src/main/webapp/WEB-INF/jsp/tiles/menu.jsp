@@ -9,8 +9,8 @@
 </head>
 <body>
 <div id="menu" align="center">
-    <html:link action="/News.do?method=list"><bean:message key="menu.news.list.link"/></html:link><br><br>
-    <html:link action="/News.do?method=showNewsForm"><bean:message key="menu.add.news.link"/></html:link>
+    <a href="/news-list"><bean:message key="menu.news.list.link"/></a><br><br>
+    <a href="/news-form"><bean:message key="menu.add.news.link"/></a>
 </div>
 </body>
 </html>
