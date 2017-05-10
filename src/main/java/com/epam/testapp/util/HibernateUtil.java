@@ -10,8 +10,6 @@ public final class HibernateUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private HibernateUtil() {
-
-
     }
 
     private static SessionFactory buildSessionFactory() {
@@ -26,7 +24,6 @@ public final class HibernateUtil {
 
             throw new ExceptionInInitializerError(ex);
         }
-
 
     }
 

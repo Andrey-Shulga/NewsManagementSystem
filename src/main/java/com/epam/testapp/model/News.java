@@ -60,6 +60,14 @@ public class News extends BaseEntity implements Serializable {
         this.id = newsId;
     }
 
+    public News(String title, Date date, String brief, String content) {
+
+        this.title = title;
+        this.date = date;
+        this.brief = brief;
+        this.content = content;
+    }
+
     public long getId() {
         return id;
     }

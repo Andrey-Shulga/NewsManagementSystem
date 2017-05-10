@@ -14,14 +14,5 @@
               type="javax.sql.DataSource"
               url="jdbc:oracle:thin:@localhost:1521:"/>
 
-    <Resource auth="Container"
-              driverClassName="oracle.jdbc.OracleDriver"
-              maxTotal="8"
-              maxAge="0"
-              maxIdle="3"
-              name="jdbc/fortestdb"
-              username="fortestdb"
-              password="test"
-              type="javax.sql.DataSource"
-              url="jdbc:oracle:thin:@localhost:1521:"/>
+
 </Context>

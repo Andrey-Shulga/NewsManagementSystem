@@ -238,3 +238,20 @@ Planes on 10.05.2017
 
 - Complete authorization through Spring Security
 - Begin test's coverage. (Mockito and etc.)
+
+Done on 10.05.2017
+
+- Completed authorization through Spring Security.
+Created table with user's login and table with user's authority roles (ROLE_ADMIN, ROLE_USER and ect.).
+If user doesn't authorize he will be redirecting on login page. If user doesn't have rights he will be redirecting on
+custom "403 access denied" page.
+
+- Read about testing application and test coverage:
+TDD, BDD practices.
+Frameworks for web UI testing - Selenium, Cucumber.
+Frameworks for unit testing Junit, mocks with Mockito.
+
+Planes on 11.05.2017
+
+- Write unit tests for application's DAO layer using Spring and Junit.
+- Write unit test for application's web UI.
