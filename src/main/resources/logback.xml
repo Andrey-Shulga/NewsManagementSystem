@@ -26,6 +26,14 @@
     <!-- Send logs to both console and file audit -->
     <logger name="org.hibernate" level="debug" additivity="false"/>
     <logger name="org.apache" level="debug" additivity="false"/>
+    <logger name="org.springframework.beans" level="debug" additivity="false"/>
+    <logger name="org.springframework.security" level="debug" additivity="false"/>
+    <logger name="org.springframework.web" level="debug" additivity="false"/>
+    <logger name="org.springframework.context" level="debug" additivity="false"/>
+    <logger name="org.springframework.core" level="debug" additivity="false"/>
+    <logger name="org.springframework.aop" level="debug" additivity="false"/>
+    <logger name="org.springframework.jndi" level="debug" additivity="false"/>
+    <logger name="org.springframework.validation" level="debug" additivity="false"/>
 
 
     <logger name="com.epam.testapp" level="debug" additivity="false">
