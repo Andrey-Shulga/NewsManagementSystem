@@ -233,3 +233,8 @@ Started the implementation of app. authorization through Spring Security framewo
 I add necessary dependencies and spring config xml file.
 In config file I add settings for using spring security annotations on controller's methods and EL tags for JSP pages.
 I create login form for redirecting on it unauthorized users.
+
+Planes on 10.05.2017
+
+- Complete authorization through Spring Security
+- Begin test's coverage. (Mockito and etc.)

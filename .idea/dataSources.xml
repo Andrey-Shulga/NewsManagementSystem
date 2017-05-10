@@ -10,7 +10,6 @@
     <data-source source="LOCAL" name="oracle@localhost" uuid="f73a14a1-3278-4f0e-b048-cf04f0d296e2">
       <driver-ref>oracle</driver-ref>
       <synchronize>true</synchronize>
-      <auto-commit>false</auto-commit>
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@localhost:1521:</jdbc-url>
     </data-source>
