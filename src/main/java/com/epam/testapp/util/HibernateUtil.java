@@ -15,8 +15,9 @@ public final class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
 
         try {
-            Configuration configuration = new Configuration();
-            configuration.configure();
+            Configuration configuration = new Configuration()
+                    .setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
+
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
             return configuration.buildSessionFactory(serviceRegistry);

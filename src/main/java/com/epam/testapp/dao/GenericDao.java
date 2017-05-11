@@ -5,9 +5,11 @@ import com.epam.testapp.model.News;
 import com.epam.testapp.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,11 +18,13 @@ import java.util.List;
 public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
 
     private static final Logger log = LoggerFactory.getLogger("GenericDao");
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Override
     public T save(T entity) {
 
-        HibernateUtil.getSessionFactory().getCurrentSession().saveOrUpdate(entity);
+        sessionFactory.getCurrentSession().saveOrUpdate(entity);
 
         return entity;
     }

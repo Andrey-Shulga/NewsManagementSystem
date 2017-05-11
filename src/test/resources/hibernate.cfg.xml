@@ -12,10 +12,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <property name="hibernate.current_session_context_class">thread</property>
-        <property name="hibernate.jdbc.use_get_generated_keys">true</property>
-        <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
-        <property name="hibernate.enable_lazy_load_no_trans">true</property>
-        <property name="hibernate.dbcp.validationQuery">select 1</property>
 
 
         <mapping class="com.epam.testapp.model.News"/>
