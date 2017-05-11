@@ -2,14 +2,15 @@ package com.epam.testapp.service;
 
 import com.epam.testapp.dao.NewsDao;
 import com.epam.testapp.model.News;
-import com.epam.testapp.util.HibernateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class NewsService {
 
     @Autowired
@@ -18,41 +19,26 @@ public class NewsService {
 
     public News save(News news) {
 
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-        News savedNews = newsDao.save(news);
-        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-        return savedNews;
+        return newsDao.save(news);
     }
 
     public List<News> getAll() {
 
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-        List<News> newsList = newsDao.findAll();
-        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-        return newsList;
+        return newsDao.findAll();
     }
 
     public void delete (News news){
 
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         newsDao.delete(news);
-        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-
     }
 
     public void deleteList (List<News> newsList){
 
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         newsDao.deleteList(newsList);
-        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-
     }
 
     public News getById (long id){
 
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-        News news = newsDao.findById(News.class, id);
-        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-        return news;
+        return newsDao.findById(News.class, id);
     }
 }

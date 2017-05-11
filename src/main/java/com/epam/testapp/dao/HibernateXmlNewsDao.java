@@ -1,13 +1,13 @@
 package com.epam.testapp.dao;
 
 import com.epam.testapp.model.News;
-import com.epam.testapp.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +17,13 @@ import static com.epam.testapp.constant.ConstantHolder.*;
 @Qualifier("HibernateXmlNewsDao")
 public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
 
+    @Autowired
+    private SessionFactory sessionFactory;
+
     @Override
     public List<News> findAll() {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         Query query = session.getNamedQuery(FIND_ALL_NAMED_QUERY);
 
         return (List<News>) query.list();
@@ -29,12 +32,12 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
     @Override
     public News save(News entity) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         Query query;
         if (entity.getId() == 0) {
             query = session.getNamedQuery(SAVE_NEWS_NAMED_QUERY);
             setAndExecute(entity, query);
-            long lastId = ((BigDecimal) session.createSQLQuery(GET_LAST_INSERTED_ID_QUERY).uniqueResult()).longValue();
+            long lastId = (long) session.createSQLQuery(GET_LAST_INSERTED_ID_QUERY).uniqueResult();
             entity.setId(lastId);
         } else {
             query = session.getNamedQuery(UPDATE_NEWS_NAMED_QUERY);
@@ -57,7 +60,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
     @Override
     public News findById(Class<News> entityClass, long id) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         Query query = session.getNamedQuery(FIND_BY_ID_NAMED_QUERY);
         query.setParameter(ID, id);
 
@@ -67,7 +70,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
     @Override
     public void delete(News entity) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         Query query = session.getNamedQuery(DELETE_BY_ID_NAMED_QUERY);
         query.setParameter(ID, entity.getId());
         query.executeUpdate();
@@ -79,7 +82,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
         List<Long> idList = new ArrayList<>();
         for (News news : entityList)
             idList.add(news.getId());
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         Query query = session.getNamedQuery(DELETE_NEWS_LIST_NAMED_QUERY);
         query.setParameterList(ID_LIST, idList);
         query.executeUpdate();

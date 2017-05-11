@@ -2,7 +2,6 @@ package com.epam.testapp.dao;
 
 import com.epam.testapp.model.BaseEntity;
 import com.epam.testapp.model.News;
-import com.epam.testapp.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -46,7 +45,7 @@ public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
     @Override
     public List<T> findAll() {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(News.class);
         criteria.addOrder(Order.desc("date"));
 
@@ -57,7 +56,7 @@ public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
     public void deleteList(List<T> entityList) {
 
         for (T entity : entityList)
-            HibernateUtil.getSessionFactory().getCurrentSession().delete(entity);
+            sessionFactory.getCurrentSession().delete(entity);
 
     }
 }
