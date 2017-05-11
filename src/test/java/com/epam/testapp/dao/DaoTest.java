@@ -10,6 +10,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,12 +19,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @ContextConfiguration(locations = "classpath:testAppContext.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DaoTest {
 
+    private static final Logger log = LoggerFactory.getLogger("DaoTest");
     @Autowired
     @Qualifier("HibernateJpaNewsDao")
     private NewsDao newsDao;
@@ -36,7 +39,7 @@ public class DaoTest {
                 .applySettings(cfg.getProperties()).build();
         SessionFactory sessionFactory = cfg.buildSessionFactory(serviceRegistry);
         HibernateUtil.setSessionFactory(sessionFactory);
-
+        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
     }
 
     @AfterClass
@@ -48,11 +51,26 @@ public class DaoTest {
     @Test
     public void testSaveNews() {
 
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-        News news = new News("testTitle", new Date(), "testBrief", "testContent");
+        News news = createTestNews();
         News savedNews = newsDao.save(news);
 
         assertNotNull(savedNews);
-        assertNotNull(savedNews.getId());
+        assertNotSame("Id not created", 0, savedNews.getId());
+    }
+
+    @Test
+    public void testGetNewsByID() {
+
+        News news = createTestNews();
+        newsDao.save(news);
+        News result = newsDao.findById(News.class, news.getId());
+
+        assertNotNull(result);
+        assertNotSame("Id not created", 0, result.getId());
+        assertEquals(news.getId(), result.getId());
+    }
+
+    private News createTestNews() {
+        return new News("testTitle", new Date(), "testBrief", "testContent");
     }
 }

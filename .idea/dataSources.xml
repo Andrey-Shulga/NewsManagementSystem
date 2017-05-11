@@ -19,5 +19,11 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@localhost:1521:</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="memdb" uuid="edf8a29c-1c74-4cc6-b28e-774f128c009a">
+      <driver-ref>hsqldb.local</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.hsqldb.jdbc.JDBCDriver</jdbc-driver>
+      <jdbc-url>jdbc:hsqldb:mem:memdb</jdbc-url>
+    </data-source>
   </component>
 </project>

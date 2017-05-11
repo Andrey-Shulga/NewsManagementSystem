@@ -5,11 +5,10 @@
 <hibernate-configuration>
     <session-factory>
 
-        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-        <property name="hibernate.connection.username">fortestdb</property>
-        <property name="hibernate.connection.password">test</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:</property>
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbc.JDBCDriver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+
+        <property name="hibernate.connection.url">jdbc:hsqldb:mem:memdb</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <property name="hibernate.current_session_context_class">thread</property>
