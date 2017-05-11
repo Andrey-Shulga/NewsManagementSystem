@@ -10,6 +10,7 @@
         <property name="hibernate.connection.username">fortestdb</property>
         <property name="hibernate.connection.password">test</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.jdbc.use_get_generated_keys">true</property>
