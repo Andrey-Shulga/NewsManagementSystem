@@ -19,7 +19,7 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
     <jdbc:embedded-database type="HSQL" id="dataSource" database-name="memdb"/>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven/>
 
     <!-- Creating DataSource
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -39,7 +39,6 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.use_sql_comments">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
-
             </props>
         </property>
     </bean>

@@ -32,14 +32,14 @@ public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
     @Override
     public T findById(Class<T> entityClass, long id) {
 
-        T entity = (T) HibernateUtil.getSessionFactory().getCurrentSession().get(entityClass, id);
+        T entity = (T) sessionFactory.getCurrentSession().get(entityClass, id);
         return entity;
     }
 
     @Override
     public void delete(T entity) {
 
-        HibernateUtil.getSessionFactory().getCurrentSession().delete(entity);
+        sessionFactory.getCurrentSession().delete(entity);
 
     }
 
