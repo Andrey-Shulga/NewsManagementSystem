@@ -68,6 +68,17 @@ public class News extends BaseEntity implements Serializable {
         this.content = content;
     }
 
+    public News(long id, String title, Date date, String brief, String content) {
+
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.brief = brief;
+        this.content = content;
+    }
+
+
+
     public long getId() {
         return id;
     }
@@ -114,6 +125,30 @@ public class News extends BaseEntity implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        News news = (News) o;
+
+        if (id != news.id) return false;
+        if (!title.equals(news.title)) return false;
+        if (!date.equals(news.date)) return false;
+        if (!brief.equals(news.brief)) return false;
+        return content.equals(news.content);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + title.hashCode();
+        result = 31 * result + date.hashCode();
+        result = 31 * result + brief.hashCode();
+        result = 31 * result + content.hashCode();
+        return result;
     }
 
     @Override

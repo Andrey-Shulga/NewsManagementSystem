@@ -255,3 +255,17 @@ Planes on 11.05.2017
 
 - Write unit tests for application's DAO layer using Spring and Junit.
 - Write unit test for application's web UI.
+
+Done on 11.05.2017
+
+- Test
+For testing DAO layer I removed Hibernate management of transactions (hibernate.cfg.xml deleted and not using anymore)
+and configure declarative transaction management by Spring and it @Transactional annotation.
+For testing DAO I use in-memory database HSQLDB embedded in Spring framework, and also I created special Spring
+application context configuration only for test purpose.
+I added DBUnit framework for initial database population with test data.
+Implemented tests for basic DAO CRUD operations.
+
+Planes on 11.05.2017
+
+- Write tests for REST API with MockMVC

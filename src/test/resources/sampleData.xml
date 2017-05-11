@@ -1,0 +1,15 @@
+<dataset>
+    <NEWS
+            ID="1"
+            TITLE="testTitle"
+            DATETIME="2017-05-06 17:31:32"
+            BRIEF="testBrief"
+            CONTENT="testContent"/>
+    <NEWS
+            ID="2"
+            TITLE="testTitle"
+            DATETIME="2017-05-06 17:31:32"
+            BRIEF="testBrief"
+            CONTENT="testContent"/>
+
+</dataset>

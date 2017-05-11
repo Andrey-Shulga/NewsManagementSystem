@@ -13,12 +13,6 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@localhost:1521:</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="forTestDB@localhost" uuid="3017c6b2-66fa-4b87-b917-00dca545c18b">
-      <driver-ref>oracle</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
-      <jdbc-url>jdbc:oracle:thin:@localhost:1521:</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="memdb" uuid="edf8a29c-1c74-4cc6-b28e-774f128c009a">
       <driver-ref>hsqldb.local</driver-ref>
       <synchronize>true</synchronize>

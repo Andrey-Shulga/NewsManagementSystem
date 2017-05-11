@@ -31,8 +31,7 @@ public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
     @Override
     public T findById(Class<T> entityClass, long id) {
 
-        T entity = (T) sessionFactory.getCurrentSession().get(entityClass, id);
-        return entity;
+        return (T) sessionFactory.getCurrentSession().get(entityClass, id);
     }
 
     @Override
