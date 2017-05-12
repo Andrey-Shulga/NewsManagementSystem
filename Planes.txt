@@ -266,6 +266,30 @@ application context configuration only for test purpose.
 I added DBUnit framework for initial database population with test data.
 Implemented tests for basic DAO CRUD operations.
 
-Planes on 11.05.2017
+Planes on 12.05.2017
 
 - Write tests for REST API with MockMVC
+
+Done on 12.05.2017
+
+- Written integration tests for REST API with Spring MockMVC
+
+
+Week report
+
+- Spring Security
+Completed application authorization through Spring Security.
+Created table with user's login/password/role_id and table with possible user's authority roles (ROLE_ADMIN, ROLE_USER and ect.).
+If user doesn't authorize in application he will be redirecting on login page for authorization.
+If user enter wrong login or password he will see the message about that error.
+If user authorized in application but doesn't have enough rights, he will be redirecting on custom "403 access denied" page.
+
+- Testing applications
+I read about TDD, BDD practices in application development.
+I wrote integration tests for DAO application layer.
+For fast testing DAO I use in-memory database HSQLDB, it embedded in Spring framework. Database schema created before
+each test and destroyed after, it provides a clean environment for each test.
+Also I created special Spring's application context configuration only for test purpose, main application context
+not involved in testing.
+I use DBUnit framework, it perform auto database population with necessary sample data before each test.
+I wrote integration tests for basic application REST API. Spring MockMVC uses for that purpose.
