@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -29,6 +30,7 @@ import static org.junit.Assert.*;
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class,
         DbUnitTestExecutionListener.class, TransactionDbUnitTestExecutionListener.class})
 @Transactional
+@DirtiesContext
 public class DaoTest {
 
     private static final Logger log = LoggerFactory.getLogger("DaoTest");

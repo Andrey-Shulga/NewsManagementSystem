@@ -39,6 +39,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         DbUnitTestExecutionListener.class, TransactionDbUnitTestExecutionListener.class})
 @Transactional
 @WebAppConfiguration
+@DirtiesContext
 public class RestTest {
 
     @Autowired
