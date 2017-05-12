@@ -6,6 +6,7 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.TransactionDbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,6 +41,8 @@ public class RestTest {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
+    @Autowired
+    private SessionFactory sessionFactory;
 
     private MockMvc mockMvc;
 
@@ -89,7 +92,7 @@ public class RestTest {
 
         final int testId = 1;
         final long testDate = 1494569142000L;
-        final News news = new News("testTitle", new Date(testDate), "testBrief", "testContent");
+        final News newsToSave = new News("testTitle", new Date(testDate), "testBrief", "testContent");
         final ObjectMapper mapper = new ObjectMapper();
 
         mockMvc.perform(get("/rest/news/get/{id}", testId))
@@ -97,7 +100,7 @@ public class RestTest {
 
         mockMvc.perform(post("/rest/news/save")
                 .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
-                .content(mapper.writeValueAsString(news)))
+                .content(mapper.writeValueAsString(newsToSave)))
 
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -106,5 +109,27 @@ public class RestTest {
                 .andExpect(jsonPath("$.date", is(testDate)))
                 .andExpect(jsonPath("$.brief", is("testBrief")))
                 .andExpect(jsonPath("$.content", is("testContent")));
+    }
+
+    @Test
+    @DatabaseSetup("/sampleData.xml")
+    public void deleteNews() throws Exception {
+
+        final int testId = 1;
+        final News newsToDelete = new News(testId);
+        final ObjectMapper mapper = new ObjectMapper();
+
+        mockMvc.perform(get("/rest/news/get/{id}", testId))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", is(testId)));
+        sessionFactory.getCurrentSession().clear();
+
+        mockMvc.perform(post("/rest/news/delete")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(mapper.writeValueAsString(newsToDelete)))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/rest/news/get/{id}", testId))
+                .andExpect(content().string("null"));
     }
 }
