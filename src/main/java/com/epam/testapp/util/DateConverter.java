@@ -33,4 +33,10 @@ public final class DateConverter {
 
         return dateFormat.format(date);
     }
+
+    public static long getStrDateToLong(String date) throws DateConverterException {
+
+        Date parseDate = getStrToDate(date);
+        return parseDate.getTime();
+    }
 }
