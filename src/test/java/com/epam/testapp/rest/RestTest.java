@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -77,7 +78,7 @@ public class RestTest {
     @DatabaseSetup("/sampleData.xml")
     public void getNewsByIdTest() throws Exception {
 
-        final long testId = 1L;
+        final int testId = 1;
         mockMvc.perform(get("/rest/news/get/{id}", testId))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -89,6 +90,7 @@ public class RestTest {
     }
 
     @Test
+    @DirtiesContext
     public void saveNews() throws Exception {
 
         final long givenId = 1;

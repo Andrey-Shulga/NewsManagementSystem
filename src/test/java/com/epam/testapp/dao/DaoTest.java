@@ -93,6 +93,7 @@ public class DaoTest {
         News result = (News) sessionFactory.getCurrentSession().get(News.class, testId);
         assertNull(result);
 
+
     }
 
     private News createTestNews() {
