@@ -27,6 +27,7 @@ import java.util.Date;
 
 import static com.jayway.jsonassert.impl.matcher.IsCollectionWithSize.hasSize;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -90,13 +91,14 @@ public class RestTest {
     @Test
     public void saveNews() throws Exception {
 
-        final int testId = 1;
-        final long testDate = 1494569142000L;
-        final News newsToSave = new News("testTitle", new Date(testDate), "testBrief", "testContent");
-        final ObjectMapper mapper = new ObjectMapper();
+        final long givenId = 1;
+        final long jsonDate = 1494569142000L;
+        Date testDate = new Date(jsonDate);
+        News newsToSave = new News("testTitle", testDate, "testBrief", "testContent");
+        ObjectMapper mapper = new ObjectMapper();
 
-        mockMvc.perform(get("/rest/news/get/{id}", testId))
-                .andExpect(content().string("null"));
+        News notExistNews = (News) sessionFactory.getCurrentSession().get(News.class, givenId);
+        assertNull(notExistNews);
 
         mockMvc.perform(post("/rest/news/save")
                 .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -104,9 +106,9 @@ public class RestTest {
 
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("$.id", is(testId)))
+                .andExpect(jsonPath("$.id", is((int) givenId)))
                 .andExpect(jsonPath("$.title", is("testTitle")))
-                .andExpect(jsonPath("$.date", is(testDate)))
+                .andExpect(jsonPath("$.date", is(jsonDate)))
                 .andExpect(jsonPath("$.brief", is("testBrief")))
                 .andExpect(jsonPath("$.content", is("testContent")));
     }
@@ -115,13 +117,12 @@ public class RestTest {
     @DatabaseSetup("/sampleData.xml")
     public void deleteNews() throws Exception {
 
-        final int testId = 1;
-        final News newsToDelete = new News(testId);
-        final ObjectMapper mapper = new ObjectMapper();
+        final long testId = 1;
+        News newsToDelete = new News(testId);
+        ObjectMapper mapper = new ObjectMapper();
 
-        mockMvc.perform(get("/rest/news/get/{id}", testId))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is(testId)));
+        News existNews = (News) sessionFactory.getCurrentSession().get(News.class, testId);
+        assertNotNull(existNews);
         sessionFactory.getCurrentSession().clear();
 
         mockMvc.perform(post("/rest/news/delete")
@@ -129,7 +130,29 @@ public class RestTest {
                 .content(mapper.writeValueAsString(newsToDelete)))
                 .andExpect(status().isOk());
 
-        mockMvc.perform(get("/rest/news/get/{id}", testId))
-                .andExpect(content().string("null"));
+        News notExistNews = (News) sessionFactory.getCurrentSession().get(News.class, testId);
+        assertNull(notExistNews);
+    }
+
+    @Test
+    @DatabaseSetup("/sampleData.xml")
+    public void editNews() throws Exception {
+
+        final long testId = 1;
+        ObjectMapper mapper = new ObjectMapper();
+
+        Date editedDate = DateConverter.getStrToDate("2017-05-07 17:31:32");
+        News editedNews = new News(testId, "testTitleUpdate", editedDate, "testBriefUpdate", "testContentUpdate");
+        News originalNews = (News) sessionFactory.getCurrentSession().get(News.class, testId);
+        assertNotEquals(editedNews, originalNews);
+        sessionFactory.getCurrentSession().clear();
+
+        mockMvc.perform(post("/rest/news/save")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(mapper.writeValueAsString(editedNews)))
+                .andExpect(status().isOk());
+
+        News result = (News) sessionFactory.getCurrentSession().get(News.class, testId);
+        assertEquals(editedNews, result);
     }
 }

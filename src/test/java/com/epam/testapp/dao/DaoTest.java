@@ -43,7 +43,7 @@ public class DaoTest {
     @Test
     public void testSaveNews() {
 
-        long nullId = 0;
+        final long nullId = 0;
         News news = createTestNews();
         News savedNews = newsDao.save(news);
         assertNotSame("Id not created", nullId, savedNews.getId());
@@ -56,7 +56,7 @@ public class DaoTest {
     @DatabaseSetup("/sampleData.xml")
     public void testGetNewsByID() throws DateConverterException {
 
-        long testId = 1L;
+        final long testId = 1L;
         Date expectedDate = DateConverter.getStrToDate("2017-05-06 17:31:32");
         News expectedNews = new News(testId, "testTitle", expectedDate, "testBrief", "testContent");
         News result = newsDao.findById(News.class, testId);
@@ -67,7 +67,7 @@ public class DaoTest {
     @DatabaseSetup("/sampleData.xml")
     public void testEditNews() throws DateConverterException {
 
-        long testId = 1L;
+        final long testId = 1L;
         News originalNews = (News) sessionFactory.getCurrentSession().get(News.class, testId);
         Date editedDate = DateConverter.getStrToDate("2017-05-07 17:31:32");
         News editedNews = new News(testId, "testTitleUpdate", editedDate, "testBriefUpdate", "testContentUpdate");
@@ -83,7 +83,7 @@ public class DaoTest {
     @DatabaseSetup("/sampleData.xml")
     public void deleteNews() {
 
-        long testId = 2L;
+        final long testId = 2L;
         News existNews = (News) sessionFactory.getCurrentSession().get(News.class, testId);
         assertNotNull(existNews);
         sessionFactory.getCurrentSession().clear();
