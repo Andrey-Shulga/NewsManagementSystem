@@ -63,4 +63,18 @@ public class RestTest {
                 .andExpect(jsonPath("$[1].brief", is("testBrief")))
                 .andExpect(jsonPath("$[1].content", is("testContent")));
     }
+
+    @Test
+    @DatabaseSetup("/sampleData.xml")
+    public void getNewsByIdTest() throws Exception {
+
+        mockMvc.perform(get("/rest/news/get/{id}", 1L))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.title", is("testTitle")))
+                .andExpect(jsonPath("$.date", is(DateConverter.getStrDateToLong("2017-05-06 17:31:32"))))
+                .andExpect(jsonPath("$.brief", is("testBrief")))
+                .andExpect(jsonPath("$.content", is("testContent")));
+    }
 }
