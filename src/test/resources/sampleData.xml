@@ -7,9 +7,9 @@
             CONTENT="testContent"/>
     <NEWS
             ID="2"
-            TITLE="testTitle"
-            DATETIME="2017-05-06 17:31:32"
-            BRIEF="testBrief"
-            CONTENT="testContent"/>
+            TITLE="testTitle2"
+            DATETIME="2017-05-07 17:31:32"
+            BRIEF="testBrief2"
+            CONTENT="testContent2"/>
 
 </dataset>

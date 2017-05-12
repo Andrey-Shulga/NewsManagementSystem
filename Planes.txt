@@ -261,7 +261,7 @@ Done on 11.05.2017
 - Test
 For testing DAO layer I removed Hibernate management of transactions (hibernate.cfg.xml deleted and not using anymore)
 and configure declarative transaction management by Spring and it @Transactional annotation.
-For testing DAO I use in-memory database HSQLDB embedded in Spring framework, and also I created special Spring
+For testing DAO I use in-memory database HSQLDB embedded in Spring framework, and also I created special Spring's
 application context configuration only for test purpose.
 I added DBUnit framework for initial database population with test data.
 Implemented tests for basic DAO CRUD operations.
