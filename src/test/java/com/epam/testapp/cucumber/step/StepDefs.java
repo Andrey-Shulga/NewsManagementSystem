@@ -27,19 +27,19 @@ public class StepDefs {
     @And("^link to logout \"([^\"]*)\" should't be visible$")
     public void linkToLogoutShouldTBeVisible(String arg0) throws Throwable {
 
-        $(By.linkText(arg0)).shouldNotBe(Condition.visible);
+        $(By.cssSelector("a[href*='" + arg0 + "'")).shouldNotBe(Condition.visible);
     }
 
     @And("^link to login \"([^\"]*)\" should be visible$")
     public void linkToLoginShouldBeVisible(String arg0) throws Throwable {
 
-        $(By.linkText(arg0)).shouldBe(Condition.visible);
+        $(By.cssSelector("a[href*='" + arg0 + "'")).shouldBe(Condition.visible);
     }
 
     @When("^press link \"([^\"]*)\"$")
     public void press_link(String linkText) throws Throwable {
 
-        $(By.linkText(linkText)).click();
+        $(By.cssSelector("a[href*='" + linkText + "'")).click();
     }
 
     @Then("^verify that page with url \"([^\"]*)\" is opened$")
