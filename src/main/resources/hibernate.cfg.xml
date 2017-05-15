@@ -6,7 +6,9 @@
     <session-factory>
 
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
         <property name="hibernate.connection.datasource">java:comp/env/jdbc/mydb</property>
+
 
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.jdbc.use_get_generated_keys">true</property>

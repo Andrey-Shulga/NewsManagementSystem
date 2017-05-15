@@ -33,7 +33,7 @@
             <bean:message key="user.label"/>
             <b><security:authentication property="principal.username"/></b><br>
 
-            <a href="<c:url value= "/j_spring_security_logout"/>"><bean:message key="logout.link"/></a>
+            <a href="<c:url value= "/logout"/>"><bean:message key="logout.link"/></a>
         </c:if>
         <h1 align="center"><bean:message key="header.label"/></h1>
         <br>

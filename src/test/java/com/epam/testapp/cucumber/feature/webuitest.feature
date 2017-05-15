@@ -7,5 +7,11 @@ Feature: Open main page and go to link "News List" in order to redirect on login
 
     #actions on first page
     Given open localhost
-    When press link "News list"
-    Then verify that page with url "http://localhost:8081/login.html" is opened
+    And link to logout "Logout" should't be visible
+    And link to login "Login" should be visible
+    When press link "News List"
+    Then verify that page with url "/login.html" is opened
+
+  Scenario: Login with admin credentials
+
+    #actions on login page
