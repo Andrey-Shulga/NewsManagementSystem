@@ -293,3 +293,8 @@ Also I created special Spring's application context configuration only for test 
 not involved in testing.
 I use DBUnit framework, it perform auto database population with necessary sample data before each test.
 I wrote integration tests for basic application REST API. Spring MockMVC uses for that purpose.
+
+Planes on 15.07.2017
+
+- Testing
+Write web UI test use Cucumber and Selenide
