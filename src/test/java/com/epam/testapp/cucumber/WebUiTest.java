@@ -1,4 +1,4 @@
-package com.epam.testapp.webui;
+package com.epam.testapp.cucumber;
 
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;

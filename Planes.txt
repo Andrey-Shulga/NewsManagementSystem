@@ -298,3 +298,21 @@ Planes on 15.07.2017
 
 - Testing
 Write web UI test use Cucumber and Selenide
+
+Done on 15.05.2017
+
+- Web UI testing
+Written 3 BDD testing scenarios uses Cucumber and Selenide.
+Created feature file with scenarios and steps for it (Given, When, Then)
+Configured test runner for using chrome driver and saving reports of tests' results in html format.
+Implemented java test class with annotated methods by steps definitions.
+
+Scenario 1. Open main page, go to link news list, verify that will be redirect on login form if no authorization.
+Scenario 2. Input user credentials in login form, select checkbox "remember_me", check no errors visible, press submit
+button, check redirect on news list page, check that login link is not visible and logout link is visible.
+Scenario 3. Check that user was logged with "admin" username, go to news form, fill input news form with sample data and press
+button for adding news, after check that inputted news added to news list.
+
+Planes on 16.07.2017
+
+- Study Jenkins.
