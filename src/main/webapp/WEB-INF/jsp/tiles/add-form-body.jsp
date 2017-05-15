@@ -31,7 +31,7 @@
                     </div>
                 </td>
                 <td>
-                    <html:text  property="news.title"  size="100" maxlength="1000"/>
+                    <html:text property="news.title" size="100" maxlength="1000"/>
                 </td>
             </tr>
         </div>

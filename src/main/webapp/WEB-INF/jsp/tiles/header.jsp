@@ -31,7 +31,8 @@
         <c:if test="${isUSer}">
 
             <bean:message key="user.label"/>
-            <b><security:authentication property="principal.username"/></b><br>
+            <div class="user"><b><security:authentication property="principal.username"/></b><br></div>
+
 
             <a href="<c:url value= "/logout"/>"><bean:message key="logout.link"/></a>
         </c:if>

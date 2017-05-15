@@ -22,10 +22,10 @@
         <h2 class="form-signin-heading"><bean:message key="please.login"/></h2>
 
         <label for="username" class="sr-only"><bean:message key="login.label"/></label>
-        <input id="username" class="form-control" name="username" value="admin" required autofocus/>
+        <input id="username" class="form-control" name="username" value="" required autofocus/>
 
         <label for="password" class="sr-only"><bean:message key="passw.label"/></label>
-        <input type="password" id="password" class="form-control" name="password" value="admin" required/>
+        <input type="password" id="password" class="form-control" name="password" value="" required/>
 
         <div class="checkbox">
             <label>
@@ -34,7 +34,7 @@
             </label>
         </div>
         <c:if test="${not empty param.error}">
-            <span style="font-size: small; color: red; "><b><bean:message key="invalid.login"/></b></span>
+            <span class="error_login" style="font-size: small; color: red; "><b><bean:message key="invalid.login"/></b></span>
         </c:if>
         <input type="submit" value="<bean:message key="login.submit.button"/>" class="btn btn-lg btn-primary btn-block">
         <br/>
