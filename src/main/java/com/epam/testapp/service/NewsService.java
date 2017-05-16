@@ -15,7 +15,7 @@ public class NewsService {
 
     @Autowired
     @Qualifier("HibernateJpaNewsDao")
-    private NewsDao newsDao;
+    private NewsDao newsDao
 
     public News save(News news) {
 

@@ -10,7 +10,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/config/applicationContext1.xml
+            /WEB-INF/config/applicationContext.xml
             /WEB-INF/config/cxf-servlet.xml
         </param-value>
     </context-param>
