@@ -316,3 +316,5 @@ button for adding news, after check that inputted news added to news list.
 Planes on 16.07.2017
 
 - Study Jenkins.
+
+Test Jenkins commit
