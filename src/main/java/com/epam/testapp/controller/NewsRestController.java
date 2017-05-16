@@ -28,7 +28,7 @@ public class NewsRestController implements NewsController {
 
     public NewsRestController() {
 
-        mapper.setSerializationInclusion(NON_NULL;
+        mapper.setSerializationInclusion(NON_NULL);
     }
 
     @Override
