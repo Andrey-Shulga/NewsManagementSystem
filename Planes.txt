@@ -333,4 +333,3 @@ Planes on 17.07.2017
 
 - Read additional info about Jenkins
 - Begin read about Sonar
-
