@@ -333,3 +333,9 @@ Planes on 17.07.2017
 
 - Read additional info about Jenkins
 - Begin read about Sonar
+
+Done on 17.07.2017
+
+- Installed and configured SonarQube server and scanner.
+- In Maven added sonar plugin for running task.
+- Performed code analysis by sonar. Code corrected by found issues.
