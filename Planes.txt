@@ -317,5 +317,19 @@ Planes on 16.07.2017
 
 - Study Jenkins.
 
-Test Jenkins commit
-test push 8
+Done on 16.05.2017
+
+- Installed and configured Jenkins
+In Jenkins I added job for monitoring my project on github.com
+I use 2 kind of monitoring:
+1) Monitoring by web-hook push. I add through Jenkins settings in my github account the web-hook and on every push to my
+repository, github send request to Jenkins about it.
+2) Jenkins every minute polls my repository on github on any happened changes.
+After receive notification about changes in repository Jenkins start project building, which includes:
+- start maven with transferred to it tasks like a compile, test, package and etc.
+- if building ended with errors send email message to person which commit broken build.
+
+Planes on 17.07.2017
+
+- Read additional info about Jenkins
+- Begin read about Sonar
