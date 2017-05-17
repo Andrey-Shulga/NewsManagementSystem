@@ -28,4 +28,9 @@ public class ConstantHolder {
 
     public static final String ID_LIST = "ids";
 
+    private ConstantHolder() {
+    }
+
+    ;
+
 }

@@ -17,7 +17,7 @@ public class WebUiTest {
 
     @BeforeClass
     static public void setupTimeout() {
-        //Configuration.timeout = 10000;
+
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         Configuration.browser = "chrome";
     }
