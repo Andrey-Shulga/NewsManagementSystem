@@ -69,7 +69,6 @@
 
     <message-resources parameter="lang"/>
 
-
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"
                       value="/WEB-INF/config/struts-servlet.xml, /WEB-INF/config/applicationContext.xml"/>
@@ -77,6 +76,9 @@
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
         <set-property value="/WEB-INF/config/tiles-defs.xml" property="definitions-config"/>
     </plug-in>
-
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property value="/WEB-INF/config/validator-rules.xml,/WEB-INF/config/validation.xml"
+                      property="pathnames"/>
+    </plug-in>
 
 </struts-config>
