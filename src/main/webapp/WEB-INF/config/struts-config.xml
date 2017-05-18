@@ -63,26 +63,20 @@
 
     </action-mappings>
 
-    <controller>
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor">
         <set-property property="processorClass" value="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
     </controller>
 
     <message-resources parameter="lang"/>
 
-    <plug-in className="org.apache.struts.tiles.TilesPlugin">
-        <set-property property="definitions-config"
-                      value="/WEB-INF/config/tiles-defs.xml"/>
-        <set-property property="moduleAware" value="true"/>
-    </plug-in>
-
-    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-        <set-property value="/WEB-INF/config/validator-rules.xml, /WEB-INF/config/validation.xml"
-                      property="pathnames"/>
-    </plug-in>
 
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"
                       value="/WEB-INF/config/struts-servlet.xml, /WEB-INF/config/applicationContext.xml"/>
     </plug-in>
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property value="/WEB-INF/config/tiles-defs.xml" property="definitions-config"/>
+    </plug-in>
+
 
 </struts-config>
