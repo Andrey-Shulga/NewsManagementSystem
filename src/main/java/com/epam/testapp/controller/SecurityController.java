@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Properties;
 
@@ -49,8 +50,9 @@ public class SecurityController {
     }
 
     @RequestMapping(value = "/ejb", method = RequestMethod.GET)
-    public ModelAndView ejbTest() throws ControllerException {
+    public ModelAndView ejbTest(HttpServletRequest request) throws ControllerException {
 
+        List<com.epam.ejb.model.News> newsList;
         try {
             Properties jndiProps = new Properties();
             jndiProps.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
@@ -60,12 +62,13 @@ public class SecurityController {
             jndiProps.put("jboss.naming.client.ejb.context", true);
             Context ctx = new InitialContext(jndiProps);
             EjbServiceRemote<com.epam.ejb.model.News> ejbServiceRemote = (EjbServiceRemote) ctx.lookup("EjbServer/EjbService!com.epam.ejb.service.EjbServiceRemote");
-            List<com.epam.ejb.model.News> newsList = ejbServiceRemote.getAll();
+            newsList = ejbServiceRemote.getAll();
             log.debug("news list = {}", newsList);
             ctx.close();
         } catch (NamingException e) {
             throw new ControllerException(e);
         }
-        return new ModelAndView("ejb");
+
+        return new ModelAndView("ejb", "news", newsList);
     }
 }
