@@ -1,10 +1,15 @@
 package com.epam.testapp.controller;
 
+import com.epam.testapp.exception.ControllerException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 @Controller
 public class SecurityController {
@@ -38,8 +43,14 @@ public class SecurityController {
     }
 
     @RequestMapping(value = "/ejb", method = RequestMethod.GET)
-    public ModelAndView ejbTest() {
+    public ModelAndView ejbTest() throws ControllerException {
 
+        try {
+            Context ctx = new InitialContext();
+            
+        } catch (NamingException e) {
+            throw new ControllerException(e);
+        }
         return new ModelAndView("ejb");
     }
 }
