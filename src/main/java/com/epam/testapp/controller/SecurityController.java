@@ -36,4 +36,10 @@ public class SecurityController {
 
         return new ModelAndView("access-denied-403");
     }
+
+    @RequestMapping(value = "/ejb", method = RequestMethod.GET)
+    public ModelAndView ejbTest() {
+
+        return new ModelAndView("ejb");
+    }
 }
