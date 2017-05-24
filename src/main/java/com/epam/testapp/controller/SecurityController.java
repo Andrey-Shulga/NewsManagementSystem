@@ -2,7 +2,6 @@ package com.epam.testapp.controller;
 
 import com.epam.ejb.service.EjbServiceRemote;
 import com.epam.testapp.exception.ControllerException;
-import com.epam.testapp.model.News;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -60,9 +59,10 @@ public class SecurityController {
             jndiProps.put(Context.SECURITY_CREDENTIALS, "admin");
             jndiProps.put("jboss.naming.client.ejb.context", true);
             Context ctx = new InitialContext(jndiProps);
-            EjbServiceRemote<News> ejbServiceRemote = (EjbServiceRemote) ctx.lookup("EjbServer/EjbService!com.epam.ejb.service.EjbServiceRemote");
-            List<News> newsList = ejbServiceRemote.getAll();
+            EjbServiceRemote<com.epam.ejb.model.News> ejbServiceRemote = (EjbServiceRemote) ctx.lookup("EjbServer/EjbService!com.epam.ejb.service.EjbServiceRemote");
+            List<com.epam.ejb.model.News> newsList = ejbServiceRemote.getAll();
             log.debug("news list = {}", newsList);
+            ctx.close();
         } catch (NamingException e) {
             throw new ControllerException(e);
         }

@@ -1,10 +1,8 @@
 package com.epam.ejb.service;
 
-import com.epam.testapp.model.BaseEntity;
-
 import java.util.List;
 
-public interface EjbServiceRemote<T extends BaseEntity> {
+public interface EjbServiceRemote<T extends com.epam.ejb.model.BaseEntity> {
 
     List<T> getAll();
 }
