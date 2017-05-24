@@ -308,6 +308,14 @@
             <version>${slf4j.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-ejb-client-bom -->
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-ejb-client-bom</artifactId>
+            <version>10.1.0.Final</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

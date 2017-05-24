@@ -1,4 +1,4 @@
-package com.epam.testapp.model;
+package com.epam.ejb.model;
 
 import java.io.Serializable;
 
