@@ -53,22 +53,33 @@ public class SecurityController {
     public ModelAndView ejbTest(HttpServletRequest request) throws ControllerException {
 
         List<com.epam.ejb.model.News> newsList;
+        Context ctx = null;
         try {
-            Properties jndiProps = new Properties();
-            jndiProps.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
-            jndiProps.put(Context.PROVIDER_URL, "http-remoting://localhost:8082");
-            jndiProps.put(Context.SECURITY_PRINCIPAL, "admin");
-            jndiProps.put(Context.SECURITY_CREDENTIALS, "admin");
-            jndiProps.put("jboss.naming.client.ejb.context", true);
-            Context ctx = new InitialContext(jndiProps);
+            ctx = getContext();
             EjbServiceRemote<com.epam.ejb.model.News> ejbServiceRemote = (EjbServiceRemote) ctx.lookup("EjbServer/EjbService!com.epam.ejb.service.EjbServiceRemote");
             newsList = ejbServiceRemote.getAll();
-            log.debug("news list = {}", newsList);
-            ctx.close();
         } catch (NamingException e) {
             throw new ControllerException(e);
+        } finally {
+            try {
+                if (ctx != null)
+                    ctx.close();
+            } catch (NamingException e) {
+                throw new ControllerException(e);
+            }
         }
 
         return new ModelAndView("ejb", "news", newsList);
+    }
+
+    private Context getContext() throws NamingException {
+
+        Properties jndiProps = new Properties();
+        jndiProps.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
+        jndiProps.put(Context.PROVIDER_URL, "http-remoting://localhost:8082");
+        jndiProps.put(Context.SECURITY_PRINCIPAL, "admin");
+        jndiProps.put(Context.SECURITY_CREDENTIALS, "admin");
+        jndiProps.put("jboss.naming.client.ejb.context", true);
+        return new InitialContext(jndiProps);
     }
 }
