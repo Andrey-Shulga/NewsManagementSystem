@@ -18,7 +18,7 @@ import static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL
 
 @RestController
 @RequestMapping(value = "/rest/news", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-public class NewsRestController implements NewsController {
+public class NewsRestController implements NewsController<News> {
 
     private static final Logger log = LoggerFactory.getLogger("NewsRestController");
     private static ObjectMapper mapper = new ObjectMapper();
