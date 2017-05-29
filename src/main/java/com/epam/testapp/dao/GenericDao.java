@@ -51,8 +51,6 @@ public abstract class GenericDao<T extends BaseEntity> implements Dao<T> {
     @Override
     public void deleteList(List<T> entityList) {
 
-        for (T entity : entityList)
-            sessionFactory.getCurrentSession().delete(entity);
-
+        entityList.forEach((entity) -> sessionFactory.getCurrentSession().delete(entity));
     }
 }

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @WebService(endpointInterface = "com.epam.testapp.soap.NewsSoap", serviceName = "News")
@@ -56,11 +56,7 @@ public class NewsSoapWebService implements NewsSoap<News> {
     @WebMethod
     public void deleteNewsList(List<Long> idList) throws ControllerException {
 
-        List<News> newsList = new ArrayList<>();
-        for (Long id : idList) {
-            News news = new News(id);
-            newsList.add(news);
-        }
+        List<News> newsList = idList.stream().map(News::new).collect(Collectors.toList());
         newsService.deleteList(newsList);
     }
 }

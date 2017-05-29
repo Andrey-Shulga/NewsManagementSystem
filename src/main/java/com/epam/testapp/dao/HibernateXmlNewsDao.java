@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.epam.testapp.constant.ConstantHolder.*;
 
@@ -79,9 +79,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
     @Override
     public void deleteList(List<News> entityList) {
 
-        List<Long> idList = new ArrayList<>();
-        for (News news : entityList)
-            idList.add(news.getId());
+        List<Long> idList = entityList.stream().map(News::getId).collect(Collectors.toList());
         Session session = sessionFactory.getCurrentSession();
         Query query = session.getNamedQuery(DELETE_NEWS_LIST_NAMED_QUERY);
         query.setParameterList(ID_LIST, idList);

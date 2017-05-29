@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.epam.testapp.constant.ConstantHolder.SUCCESS;
 
@@ -26,11 +27,7 @@ public class DeleteNewsListAction extends Action {
 
         NewsForm newsForm = (NewsForm) form;
         long[] newsIdToDelete = newsForm.getNewsToDelete();
-        List<News> newsList = new ArrayList<>();
-        for (long newsId : newsIdToDelete) {
-            News news = new News(newsId);
-            newsList.add(news);
-        }
+        List<News> newsList = Arrays.stream(newsIdToDelete).mapToObj(News::new).collect(Collectors.toList());
         newsService.deleteList(newsList);
 
         return mapping.findForward(SUCCESS);
