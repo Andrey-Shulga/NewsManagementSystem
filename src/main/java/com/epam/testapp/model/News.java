@@ -11,9 +11,9 @@ import static com.epam.testapp.constant.ConstantHolder.*;
 
 @JsonInclude(value = JsonInclude.Include.NON_EMPTY, content = JsonInclude.Include.NON_EMPTY)
 @NamedQueries({
-        @NamedQuery(name = FIND_ALL_NAMED_QUERY, query = "from News order by date desc"),
-        @NamedQuery(name = FIND_BY_ID_NAMED_QUERY, query = "from News n where n.id=:id"),
-        @NamedQuery(name = DELETE_BY_ID_NAMED_QUERY, query = "delete from News n where n.id=:id"),
+        @NamedQuery(name = FIND_ALL_NEWS_NAMED_QUERY, query = "from News order by date desc"),
+        @NamedQuery(name = FIND_NEWS_BY_ID_NAMED_QUERY, query = "from News n where n.id=:id"),
+        @NamedQuery(name = DELETE_NEWS_BY_ID_NAMED_QUERY, query = "delete from News n where n.id=:id"),
         @NamedQuery(name = DELETE_NEWS_LIST_NAMED_QUERY, query = "delete from News n where n.id in :ids")
 })
 @NamedNativeQueries({

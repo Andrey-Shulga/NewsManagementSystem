@@ -9,21 +9,25 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SecurityController {
 
-    @PreAuthorize("hasRole('ADMIN')")
+    private static final String ADMIN_ROLE = "ADMIN";
+    private static final String USER_ROLE = "USER";
+    private static final String ANONYMOUS_ROLE = "ANONYMOUS";
+
+    @PreAuthorize("hasRole('" + ADMIN_ROLE + "')")
     @RequestMapping(value = "/news-form", method = RequestMethod.GET)
     public ModelAndView newsForm() {
 
-        return new ModelAndView("redirect:/News.do?method=showNewsForm");
+        return new ModelAndView("add-form");
     }
 
-    @PreAuthorize("hasRole('ADMIN') || hasRole('USER')")
+    @PreAuthorize("hasRole('" + ADMIN_ROLE + "') || hasRole('" + USER_ROLE + "')")
     @RequestMapping(value = "/news-list", method = RequestMethod.GET)
     public ModelAndView newsList() {
 
         return new ModelAndView("redirect:/News.do?method=list");
     }
 
-    @PreAuthorize("hasRole('ROLE_ANONYMOUS')")
+    @PreAuthorize("hasRole('" + ANONYMOUS_ROLE + "')")
     @RequestMapping(value = "/login.html", method = RequestMethod.GET)
     public ModelAndView login() {
 

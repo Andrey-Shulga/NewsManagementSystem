@@ -4,7 +4,6 @@ import com.epam.ejb.model.News;
 import com.epam.ejb.service.EjbServiceRemote;
 import com.epam.ejb.service.EjbWebService;
 import com.epam.testapp.exception.ControllerException;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,10 +19,22 @@ import java.net.URL;
 import java.util.List;
 import java.util.Properties;
 
+import static com.epam.testapp.constant.ConstantHolder.NEWS_ATTRIBUTE;
+
 @Controller
 public class EjbController {
 
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger("EjbController");
+    private static final String EJB_SERVICE_REMOTE = "EjbServer/EjbService!com.epam.ejb.service.EjbServiceRemote";
+    private static final String EJB_VIEW_NAME = "ejb";
+    private static final String NAMING_REMOTE_CLIENT_INITIAL_CONTEXT_FACTORY = "org.jboss.naming.remote.client.InitialContextFactory";
+    private static final String HTTP_REMOTING_HOST = "http-remoting://localhost:8082";
+    private static final String USERNAME = "admin";
+    private static final String PASSWORD = "admin";
+    private static final String NAMING_CLIENT_EJB_CONTEXT = "jboss.naming.client.ejb.context";
+    private static final String HOST_EJB_SERVICE = "http://localhost:8082/EjbServer/EjbService";
+    private static final String NAMESPACE_URI = "http://www.epam.com/";
+    private static final String EJB_SERVICE = "EjbServiceService";
+    private static final String WSDL_SUFFIX = "?wsdl";
 
     @RequestMapping(value = "/ejb", method = RequestMethod.GET)
     public ModelAndView ejbInvokeRemoteInterface() throws ControllerException {
@@ -32,7 +43,7 @@ public class EjbController {
         Context ctx = null;
         try {
             ctx = getContext();
-            EjbServiceRemote<News> ejbServiceRemote = (EjbServiceRemote) ctx.lookup("EjbServer/EjbService!com.epam.ejb.service.EjbServiceRemote");
+            EjbServiceRemote<News> ejbServiceRemote = (EjbServiceRemote) ctx.lookup(EJB_SERVICE_REMOTE);
             newsList = ejbServiceRemote.getAll();
         } catch (NamingException e) {
             throw new ControllerException(e);
@@ -45,36 +56,34 @@ public class EjbController {
             }
         }
 
-        return new ModelAndView("ejb", "news", newsList);
+        return new ModelAndView(EJB_VIEW_NAME, NEWS_ATTRIBUTE, newsList);
     }
 
     private Context getContext() throws NamingException {
 
         Properties jndiProps = new Properties();
-        jndiProps.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
-        jndiProps.put(Context.PROVIDER_URL, "http-remoting://localhost:8082");
-        jndiProps.put(Context.SECURITY_PRINCIPAL, "admin");
-        jndiProps.put(Context.SECURITY_CREDENTIALS, "admin");
-        jndiProps.put("jboss.naming.client.ejb.context", true);
+        jndiProps.put(Context.INITIAL_CONTEXT_FACTORY, NAMING_REMOTE_CLIENT_INITIAL_CONTEXT_FACTORY);
+        jndiProps.put(Context.PROVIDER_URL, HTTP_REMOTING_HOST);
+        jndiProps.put(Context.SECURITY_PRINCIPAL, USERNAME);
+        jndiProps.put(Context.SECURITY_CREDENTIALS, PASSWORD);
+        jndiProps.put(NAMING_CLIENT_EJB_CONTEXT, true);
         return new InitialContext(jndiProps);
     }
 
     @RequestMapping(value = "/ejbWebService", method = RequestMethod.GET)
     public ModelAndView ejbInvokeRemoteWebService() throws ControllerException {
 
-        String endPointAddress = "http://localhost:8082/EjbServer/EjbService";
-        QName serviceName = new QName("http://www.epam.com/", "EjbServiceService");
+        QName serviceName = new QName(NAMESPACE_URI, EJB_SERVICE);
         URL wsdlURL;
         try {
-            wsdlURL = new URL(endPointAddress + "?wsdl");
+            wsdlURL = new URL(HOST_EJB_SERVICE + WSDL_SUFFIX);
         } catch (MalformedURLException e) {
             throw new ControllerException(e);
         }
         Service service = Service.create(wsdlURL, serviceName);
         EjbWebService proxy = service.getPort(EjbWebService.class);
         List<News> newsList = proxy.getAll();
-        log.debug("NEWS LIST = {}", newsList);
 
-        return new ModelAndView("ejb", "news", newsList);
+        return new ModelAndView(EJB_VIEW_NAME, NEWS_ATTRIBUTE, newsList);
     }
 }

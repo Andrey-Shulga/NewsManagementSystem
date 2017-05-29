@@ -24,7 +24,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
     public List<News> findAll() {
 
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.getNamedQuery(FIND_ALL_NAMED_QUERY);
+        Query query = session.getNamedQuery(FIND_ALL_NEWS_NAMED_QUERY);
 
         return (List<News>) query.list();
     }
@@ -61,7 +61,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
     public News findById(Class<News> entityClass, long id) {
 
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.getNamedQuery(FIND_BY_ID_NAMED_QUERY);
+        Query query = session.getNamedQuery(FIND_NEWS_BY_ID_NAMED_QUERY);
         query.setParameter(ID, id);
 
         return (News) query.uniqueResult();
@@ -71,7 +71,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
     public void delete(News entity) {
 
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.getNamedQuery(DELETE_BY_ID_NAMED_QUERY);
+        Query query = session.getNamedQuery(DELETE_NEWS_BY_ID_NAMED_QUERY);
         query.setParameter(ID, entity.getId());
         query.executeUpdate();
     }
