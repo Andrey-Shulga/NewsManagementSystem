@@ -27,15 +27,11 @@ public class EjbController {
 
     private static final String EJB_SERVICE_REMOTE = "EjbServer/EjbService!com.epam.ejb.service.EjbServiceRemote";
     private static final String EJB_VIEW_NAME = "ejb";
-    private static final String NAMING_REMOTE_CLIENT_INITIAL_CONTEXT_FACTORY = "org.jboss.naming.remote.client.InitialContextFactory";
-    private static final String HTTP_REMOTING_HOST = "http-remoting://localhost:8082";
-    private static final String USERNAME = "admin";
-    private static final String PASSWORD = "admin";
-    private static final String NAMING_CLIENT_EJB_CONTEXT = "jboss.naming.client.ejb.context";
     private static final String HOST_EJB_SERVICE = "http://localhost:8082/EjbServer/EjbService";
     private static final String NAMESPACE_URI = "http://www.epam.com/";
     private static final String EJB_SERVICE = "EjbServiceService";
     private static final String WSDL_SUFFIX = "?wsdl";
+    private static final String JNDI_PROPERTIES_FILE = "jndi.properties";
 
     @RequestMapping(value = "/ejb", method = RequestMethod.GET)
     public ModelAndView ejbInvokeRemoteInterface() throws ControllerException {
@@ -64,7 +60,7 @@ public class EjbController {
 
         Properties jndiProps = new Properties();
         try {
-            jndiProps.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("jndi.properties"));
+            jndiProps.load(Thread.currentThread().getContextClassLoader().getResourceAsStream(JNDI_PROPERTIES_FILE));
         } catch (IOException e) {
             throw new ControllerException(e);
         }
