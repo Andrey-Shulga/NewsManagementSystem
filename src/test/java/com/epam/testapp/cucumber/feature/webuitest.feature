@@ -29,7 +29,7 @@ Feature: Open main page, go to link "News List" in order to redirect on login's 
     #actions on news form
     Given verify that text with value "admin" exist
     And press link "news-form"
-    Then verify that page with url "/News.do?method=showNewsForm" is opened
+    Then verify that page with url "/news-form" is opened
     And type to input with name "news.title" text: "newsTitle"
     And type to input with name "news.brief" text: "newsBrief"
     And type to input with name "news.content" text: "newsContent"
