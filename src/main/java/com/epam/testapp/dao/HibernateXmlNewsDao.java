@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,7 +38,7 @@ public class HibernateXmlNewsDao extends GenericDao<News> implements NewsDao {
         if (entity.getId() == 0) {
             query = session.getNamedQuery(SAVE_NEWS_NAMED_QUERY);
             setAndExecute(entity, query);
-            long lastId = (long) session.createSQLQuery(GET_LAST_INSERTED_ID_QUERY).uniqueResult();
+            long lastId = ((BigDecimal) session.createSQLQuery(GET_LAST_INSERTED_ID_QUERY).uniqueResult()).longValue();
             entity.setId(lastId);
         } else {
             query = session.getNamedQuery(UPDATE_NEWS_NAMED_QUERY);
