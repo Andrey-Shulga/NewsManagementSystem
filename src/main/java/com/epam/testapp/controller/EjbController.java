@@ -14,6 +14,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -59,14 +60,15 @@ public class EjbController {
         return new ModelAndView(EJB_VIEW_NAME, NEWS_ATTRIBUTE, newsList);
     }
 
-    private Context getContext() throws NamingException {
+    private Context getContext() throws NamingException, ControllerException {
 
         Properties jndiProps = new Properties();
-        jndiProps.put(Context.INITIAL_CONTEXT_FACTORY, NAMING_REMOTE_CLIENT_INITIAL_CONTEXT_FACTORY);
-        jndiProps.put(Context.PROVIDER_URL, HTTP_REMOTING_HOST);
-        jndiProps.put(Context.SECURITY_PRINCIPAL, USERNAME);
-        jndiProps.put(Context.SECURITY_CREDENTIALS, PASSWORD);
-        jndiProps.put(NAMING_CLIENT_EJB_CONTEXT, true);
+        try {
+            jndiProps.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("jndi.properties"));
+        } catch (IOException e) {
+            throw new ControllerException(e);
+        }
+
         return new InitialContext(jndiProps);
     }
 
